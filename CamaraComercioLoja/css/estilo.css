@@ -1,0 +1,30 @@
+body{
+    padding: auto;
+    margin: auto;
+}
+.cabeceraPrincipal{
+    color: #1a2f79;
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 600;
+    word-wrap: break-word
+}
+.cabeceraPrincipal img{
+    width: 87px;
+    height: 82px;
+    left: 116px;
+    top: 9px;
+    position: absolute;
+    display: flex;
+    align-items:flex-start;
+}
+.cabeceraPrincipal.camara{
+    left: 203px;
+    top: 28px;
+    position: absolute;
+    color: #1A2F79;
+    font-size: 12px;
+    font-family: Inter; 
+    font-weight: 600; 
+    word-wrap: break-word
+}
