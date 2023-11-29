@@ -123,6 +123,7 @@ body {
     height: 60px;
     background: #C8C57E;
     box-shadow: 0px 20px 35px rgba(241, 165, 1, 0.15);
+    border-radius: 10px;
 
 }
 
@@ -140,5 +141,68 @@ body {
 .funciones{
     display: flex;
     flex-grow: 1;
+    margin: 0 auto;
+    justify-content: center;
+    width: 90%;
+    padding-bottom: 5em;
+}
+.funcion-card{
+    padding: 0 3em;
+    justify-items: center;
+    justify-content: center;
+}
+.funcion-content{
+    flex-direction: column;
+    display: flex;  
+    align-items: center;
+}
+.boletines{
+    width: 60%;
+    background-color: #C8C57E;
+    padding: 5em 3em;
+    margin: 0 auto;
+    text-align: center;
+    
+    border-radius: 20em;
+}
+.boletines h3{
+   padding-top: 2em; 
+}
+.spam{
+    display: flex;
+    justify-content: center;
     
 }
+.spam input{
+    padding: 0em 9em;
+    border-radius: 10px;
+    margin-right: 1em;
+}
+.spam button{
+    padding: 1em 2em;
+    background-color: #FF946D;
+    border-radius: 10px;
+}
+.foot{
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+}
+.ccl{
+    width: 100%;
+}
+.letra{
+    display: flex;
+}
+.letra img{
+    width: 8%;
+    height: 8%; 
+    margin: 0;
+}
+.mancha svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+    opacity: 0.5; 
+}   
