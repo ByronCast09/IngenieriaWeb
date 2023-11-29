@@ -1,0 +1,97 @@
+body {
+    padding: auto;
+    margin: auto;
+}
+
+.contenedorPrincipal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.cabeceraPrincipal {
+    position: relative;
+    color: #1a2f79;
+    font-size: 10px;
+    font-family: Inter;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cabeceraPrincipal img {
+    width: 87px;
+    height: 82px;
+    margin-right: 10px;
+}
+
+.navegacion span {
+    margin-right: 20px;
+}
+
+.navegacion>span {
+    color: #1a2f79;
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.cabeceraPrincipal.camara {
+    color: #1A2F79;
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 600;
+    margin: 30px;
+    margin-right: 0px;
+}
+
+.seccionIzquierda {
+    color: #181E4B;
+    font-size: 84px;
+    font-family: Volkhov;
+    font-weight: 600;
+    line-height: 89px;
+    word-wrap: break-word;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.seccIzq.img {
+    width: 87px;
+    height: 82px;
+    max-width: 20px;
+}
+.cuadro{
+    margin: 0 auto;
+    background-color: #B5BE4B;
+    width: 80%;
+    padding: 0.5em 2em;
+    margin-bottom: 2em;
+}
+.interior{
+    display: flex;
+    justify-content: space-between;
+}
+.interior img{
+    width: 10%;
+    height: 10%;
+}
+
+.mancha svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+    opacity: 0.5; 
+}   
