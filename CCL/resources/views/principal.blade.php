@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Camara de Comercio Loja</title>
 
@@ -33,189 +34,238 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    @vite(['resources/css/principal.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css'])
 
 </head>
 
 <body>
 
-    <header class="cabecera">
-
-        <div class="logo">
-            <img src="{{ asset('images/camaraC.jpg') }}">
-            <div class="titulo">
-                CÁMARA <br />COMERCIO <br />DE LOJA</div>
+    <header class="flex justify-between items-center p-2 mb-16">
+        <div class="flex items-center z-10">
+            <img class="w-20 h-20 mr-3 " src="{{ asset('images/camaraC.jpg') }}">
+            <h4 class="text-sm font-bold font-roboto italic text-azullogo leading-relaxed">CÁMARA <br />COMERCIO
+                <br />DE LOJA
+            </h4>
         </div>
 
-        <nav class="navegacion">
-            <a class="nav-link" href="#">Capacitación</a>
-            <a class="nav-link" href="#">Beneficios</a>
-            <a class="nav-link" href="#">Guía Comercial</a>
-            <a class="nav-link" href="#">Contactos</a>
-            <a class="nav-link" href="#">Afiliate</a>
+        <nav
+            class="flex md:flex-row flex-col md:items-center justify-end items-end font-inter text-xs font-semibold z-10">
+            <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110" href="#">Capacitación</a>
+            <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110" href="#">Beneficios</a>
+            <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110" href="#">Guía Comercial</a>
+            <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110" href="#">Contactos</a>
+            <a class="nav-link md:mr-12 sm:mt-0 hover:scale-110" href="#">Afiliate</a>
         </nav>
-
     </header>
 
-    <div class="box1"><img class="decore1" src="{{ asset('images/decore1.png') }}" /></div>
-
-    <section class="label">
-        <p class="titulo">Capacítate con<br />los mejores <br />economistas del<br />país</p>
-        <img src="{{ asset('images/topImg.svg') }}">
-    </section>
-
-    <section class="postLabel">
-
-        <p>Impulsa tu carrera con nuestra formación<br /> de calidad</p>
-
-        <div class="buttons">
-            <button class="btn btn-primary m">Más Información</button>
-            <a href="#" class="btn btn-primary rounded-circle">
-                <i class="fas fa-play"></i>
-            </a>
-            <h6>Prueba Gratuita</h6>
-        </div>
-
-    </section>
-
-    <div class="box2"><img class="decore2" src="{{ asset('images/decore2.png') }}" /></div>
-
-    <div class="subtitulo">
-        <h2>Conoce los temas para ser parte de la Cámara de Comercio</h2>
+    <div class="absolute top-0 right-0 z-0">
+        <img class="" src="{{ asset('images/decore1.png') }}" />
     </div>
 
-    <section class="cards">
+    <section class="flex justify-between items-center mb-12">
 
-        <article class="card">
-            <div class="card-content">
-                <img src="{{ asset('images/card1.png') }}" alt="Imagen de la tarjeta">
-            </div>
-            <h2>Mercadeo y Ventas</h2>
-            <button class="btn btn-primary m">Más Información</button>
+        <p
+            class="sm:ml-20 font-volkhov font-bold text-azulccl lg:text-titulo1 text-3xl tracking-tighter leading-titulo1 z-10">
+            Capacítate con<br />los mejores <br />economistas del<br />país</p>
+
+        <img class="sm:mr-72 mr-10 z-10 sm:w-auto sm:h-full h-60 w-60" src="{{ asset('images/topImg.svg') }}">
+
+    </section>
+
+    <section class="sm:ml-20 flex flex-col sm:items-start items-center">
+        <p class="font-poppins text-black sm:text-subtitulo1 not-italic font-semibold leading-normal mb-8">
+            Impulsa tu carrera con nuestra formación<br /> de calidad</p>
+
+        <div class="flex items-center sm:justify-start justify-center">
+
+            <button
+                class="btn btn-primary sm:w-44 sm:h-16 sm:mr-32 mr-3 bg-cremaccl border-none rounded-xl font-poppins text-sm shadow-masInfo hover:bg-hcremaccl">
+                Más Información
+            </button>
+
+            <a href="#"
+                class="btn btn-primary rounded-circle w-12 h-12 flex justify-center items-center bg-playbtn border-none shadow-splaybtn hover:bg-hplaybtn">
+                <i class="fas fa-play text-base"></i>
+            </a>
+
+            <h6 class="ml-5 text-pg font-poppins font-medium text-gris">
+                Prueba Gratuita
+            </h6>
+
+        </div>
+    </section>
+
+    <div class="mt-36 z-0 absolute">
+        <img class="" src="{{ asset('images/decore2.png') }}" />
+    </div>
+
+    <div class="mt-24 text-center mb-20">
+        <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal">
+            Conoce los temas para ser parte de la Cámara de Comercio
+        </h2>
+    </div>
+
+    <section class="flex md:flex-row flex-col justify-center mb-64">
+
+        <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
+            <img class="rounded-lg hover:animate-escalar" src="{{ asset('images/card1.png') }}">
+            <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
+                Mercadeo y Ventas
+            </h2>
+            <button
+                class="btn btn-primary mt-10 w-40 h-9 rounded-lg bg-cremaccl border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl">
+                Más Información
+            </button>
         </article>
 
-        <article class="card">
-            <div class="card-content">
-                <img src="{{ asset('images/card2.png') }}" alt="Imagen de la tarjeta">
-            </div>
-            <h2>Producción y Calidad</h2>
-            <button class="btn btn-primary m">Más Información</button>
+        <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
+            <img class="rounded-lg hover:animate-escalar" src="{{ asset('images/card2.png') }}">
+            <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
+                Producción y Calidad
+            </h2>
+            <button
+                class="btn btn-primary mt-10 w-40 h-9 rounded-lg bg-cremaccl border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl">Más
+                Información</button>
         </article>
 
-        <article class="card">
-            <div class="card-content">
-                <img src="{{ asset('images/card3.png') }}" alt="Imagen de la tarjeta">
-            </div>
-            <h2>Legal y Normativo</h2>
-            <button class="btn btn-primary m">Más Información</button>
+        <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
+            <img class="rounded-lg hover:animate-escalar" src="{{ asset('images/card3.png') }}">
+            <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
+                Legal y Normativo
+            </h2>
+            <button
+                class="btn btn-primary mt-10 w-40 h-9 rounded-lg bg-cremaccl border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl">Más
+                Información</button>
         </article>
 
     </section>
 
-    <section class="contact-section">
+    <section class="flex justify-center">
+        <div class="flex flex-col w-w1170 h-auto rounded-rcontactbox bg-bcontactbox shadow-scontactbox text-center">
 
-        <div class="contact-box">
-
-            <div class="contact-btn">
-                <a class="btn btn-primary rounded-circle">
-                    <i class="fa-solid fa-paper-plane"></i>
+            <div class="absolute flex self-end">
+                <a
+                    class="btn btn-primary rounded-circle md:w-w70 md:h-h70 w-10 h-10 flex items-center justify-center mr-10 mt-2 bg-playbtn border-none shadow-splaybtn hover:bg-hplaybtn hover:animate-escalar">
+                    <i class="fa-solid fa-paper-plane md:text-aiplanebtn"></i>
                 </a>
             </div>
 
-            <h1>Suscríbete a nuestros boletínes</h1>
+            <h1 class="text-azulccl font-poppins lg:text-3xl text-sm font-semibold leading-10 p-10">
+                Suscríbete a nuestros boletínes
+            </h1>
 
-            <p>Mantente al día con las novedades de nuestro gremio, suscríbete a nuestros boletines y recibe información
-                directamente en tu bandeja de entrada</p>
+            <p class="text-pcontactbox font-poppins lg:text-2xl text-xs font-semibold leading-normal">
+                Mantente al día con las novedades de nuestro gremio, suscríbete a nuestros <br> boletines y recibe
+                información
+                directamente en tu bandeja de entrada
+            </p>
 
-            <section class="email-section">
-
-                <div class="input-group mb-1">
-                    <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-regular fa-envelope"></i>
+            <section class="flex justify-center p-16">
+                <div class="input-group border-none md:w-w420 md:h-h70 md-auto h-auto">
+                    <span class="input-group-text border-none bg-white rounded-lg">
+                        <i class="fa-regular fa-envelope text-icontactbox text-sm"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="Tu Email" aria-label=""
-                        aria-describedby="basic-addon1">
+                    <input type="text"
+                        class="form-control font-montserrat border-none placeholder:text-icontactbox rounded-lg"
+                        placeholder="Tu Email">
                 </div>
 
-                <button class="btn btn-primary">Suscríbete</button>
+                <button
+                    class="btn btn-primary md:w-w180 md:h-h70 border-none rounded-xl ml-5 bg-bcontactbtn1 hover:bg-bcontactbtn2 font-poppins text-sbtn font-normal leading-normal text-black">
+                    Suscríbete
+                </button>
             </section>
-        </div>
 
+        </div>
     </section>
 
-    <hr class="separador">
+    <div class="flex justify-center mt-24">
+        <hr class="border-t-2 border-black w-11/12">
+    </div>
 
-    <footer class="footer">
+    <footer class="flex md:flex-row flex-col md:justify-around md:items-start items-center mt-20 mb-8">
+        <section class="md:w-w20p flex flex-col items-center text-justify z-10">
 
-        <section class="section-1">
-
-            <div class="logo">
-                <img src="{{ asset('images/camaraC.jpg') }}">
-                <div class="titulo">
-                    CÁMARA <br />COMERCIO <br />DE LOJA</div>
+            <div class="flex items-center z-10">
+                <img class="w-20 h-20 mr-3" src="{{ asset('images/camaraC.jpg') }}">
+                <h4 class="text-sm font-bold font-roboto italic text-azullogo leading-relaxed">CÁMARA <br />COMERCIO
+                    <br />DE
+                    LOJA
+                </h4>
             </div>
 
-            <p>
+            <p class="p-3 text-black font-poppins text-sm font-semibold leading-normal">
                 Como gremio buscamos siempre el progreso y beneficio para todos nuestros socios, seguimos trabajando
                 para el
                 engrandecimiento de nuestra ciudad provincia y país.
             </p>
 
-            <div class="social-icons">
-                <i class="fa-brands fa-x-twitter"></i>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
+            <div class="flex justify-center text-xl">
+                <i class="fa-brands fa-x-twitter mr-5"></i>
+                <i class="fa-brands fa-facebook mr-5"></i>
+                <i class="fa-brands fa-instagram mr-5"></i>
             </div>
 
         </section>
 
-        <section class="section-2">
+        <section class="md:w-w20p md:text-left z-10">
 
-            <h3>Enlaces Rápidos</h3>
-            <hr class="mini-separador">
-            <a class="nav-link" href="#">Nosotros</a>
-            <a class="nav-link" href="#">Nuestros Socios</a>
-            <a class="nav-link" href="#">Beneficios</a>
-            <a class="nav-link" href="#">Noticias</a>
-            <a class="nav-link" href="#">Contactos</a>
-            <a class="nav-link" href="#">Guia Comercial</a>
-
-        </section>
-
-        <section class="section-3">
-
-            <h3>Páginas de Interés</h3>
-            <hr class="mini-separador">
-            <a class="nav-link" href="#">Bomberos</a>
-            <a class="nav-link" href="#">ECU 911</a>
-            <a class="nav-link" href="#">Municipio de Loja</a>
-            <a class="nav-link" href="#">Cámara de Comercio Quito</a>
-            <a class="nav-link" href="#">SRI</a>
+            <h3 class="text-black font-poppins text-xl font-semibold leading-normal">
+                Enlaces Rápidos
+            </h3>
+            <hr class="w-full mt-2 mb-2 border-t-2 border-black">
+            <div class="text-black font-inter text-sm font-semibold leading-normal">
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Nosotros</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Guia Comercial</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Nuestros Socios</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Beneficios</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Noticias</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Contactos</a>
+            </div>
 
         </section>
 
-        <section class="section-4">
+        <section class="md:w-w20p md:text-left z-10">
 
-            <h3>Horario de Atención</h3>
-            <div class="horarios">
-                <i class="fa-solid fa-clock"></i>
-                <p>
+            <h3 class="text-black font-poppins text-xl font-semibold leading-normal">
+                Páginas de Interés
+            </h3>
+            <hr class="w-full mt-2 mb-2 border-t-2 border-black">
+            <div class="text-black font-inter text-sm font-semibold leading-normal">
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Bomberos</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">ECU 911</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Municipio de Loja</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">Cámara de Comercio Quito</a>
+                <a class="nav-link mb-3 hover:text-hcremaccl" href="#">SRI</a>
+            </div>
+
+        </section>
+
+        <section class="md:w-w20p text-center z-10 flex flex-col">
+
+            <h3 class="text-black font-poppins text-xl font-semibold leading-normal">
+                Horario de Atención
+            </h3>
+            <div class="flex items-center justify-center mb-2">
+                <i class="fa-solid fa-clock text-4xl leading-normal mr-4"></i>
+                <p class="p-3 text-black font-poppins text-sm font-semibold leading-normal">
                     08h30 a 12h30 <br />
                     14h00 a 18h00 <br />
                     Lunes a Viernes <br />
                 </p>
             </div>
-            <p>
+            <p class="p-3 text-black font-poppins text-sm font-semibold leading-normal">
                 Estamos gustosos de <br />
                 atender cada una de <br />
                 tus consultas
             </p>
 
         </section>
-
     </footer>
 
-    <div class="box3"><img class="decore3" src="{{ asset('images/decore3.png') }}" /></div>
+    <div class="relative">
+        <img class="absolute right-0 bottom-0 z-0" src="{{ asset('images/decore3.png') }}" />
+    </div>
 
 </body>
 

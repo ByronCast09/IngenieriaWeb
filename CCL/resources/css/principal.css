@@ -1,6 +1,6 @@
 body {
-    padding: auto;
-    margin: auto;
+    padding: 0;
+    margin: 0;
 }
 
 .box1 {
@@ -14,7 +14,6 @@ body {
     width: 742px;
     height: 690px;
 }
-
 
 .cabecera {
     display: flex;
@@ -60,7 +59,6 @@ body {
     font-size: 12px;
     font-family: Inter;
     font-weight: 600;
-    word-wrap: break-word
 }
 
 .navegacion>a:hover {
@@ -143,7 +141,7 @@ body {
 
 .btn.btn-primary:hover {
     color: #ffffff; 
-  }
+}
 
 .buttons a {
     display: flex;
@@ -170,7 +168,6 @@ body {
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    word-wrap: break-word
 }
 
 .box2 {

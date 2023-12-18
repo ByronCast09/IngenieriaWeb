@@ -20,8 +20,12 @@ Route::get('/principal', function () {
     return view('principal');
 });
 
-Route::get('/principal1', function () {
+Route::get('/principal2', function () {
     return view('principal1');
+});
+
+Route::get('/beneficios', function () {
+    return view('beneficios');
 });
 
 /*
