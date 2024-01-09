@@ -1,6 +1,11 @@
 <?php
 
+
+use App\Livewire\BeneficiosView;
+use App\Livewire\CursosView;
+use App\Livewire\PrincipalView;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,19 +17,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/principal', function () {
-    return view('principal');
-});
 
-Route::get('/principal2', function () {
-    return view('principal1');
-});
+Route::get('/', PrincipalView::class);
 
-Route::get('/beneficios', function () {
-    return view('beneficios');
-});
+Route::get('/beneficios', BeneficiosView::class);
 
-Route::view('/', 'welcome');
+Route::get('/cursos', CursosView::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -34,4 +32,8 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::get('/cursos-manager', [CursoController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('cursos-manager');
+
+require __DIR__ . '/auth.php';

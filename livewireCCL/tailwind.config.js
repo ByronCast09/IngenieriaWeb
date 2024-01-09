@@ -18,6 +18,7 @@ export default {
                 volkhov: ['volkhov', 'serif'],
                 poppins: ['Poppins', 'sans-serif'],
                 montserrat: ['Montserrat', 'sans-serif'],
+                figtree: ['Figtree'],
             },
             colors: {
                 azullogo: '#1A2F79',
