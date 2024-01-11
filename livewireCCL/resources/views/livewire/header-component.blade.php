@@ -14,8 +14,10 @@
             <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110" href="/beneficios">Beneficios</a>
             <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110" href="#">Guía Comercial</a>
             <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110" href="#">Contactos</a>
-            <a class="nav-link md:mr-12 sm:mt-0 hover:scale-110" href="/login">Afiliate</a>
+            <a class="nav-link md:mr-12 sm:mt-0 hover:scale-110" href="/register">Afiliate</a>
         </nav>
+
+        <livewire:mancha-top />
     </header>
 
 </div>

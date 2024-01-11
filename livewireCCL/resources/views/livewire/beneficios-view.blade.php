@@ -1,18 +1,19 @@
 <div>
-    
+
     <section class="flex justify-between items-center mb-28">
         <p
-            class="sm:ml-40 font-volkhov font-bold text-azulccl lg:text-titulo1 text-3xl tracking-tighter leading-titulo1 z-10">
+            class="sm:ml-40 font-volkhov font-bold text-azulccl lg:text-titulo1 text-3xl tracking-tighter leading-titulo1 z-10 animate-fade">
             Beneficios <br> para afiliados
         </p>
 
-        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-full h-40 w-40" src="{{ asset('images/topImg1.png') }}">
+        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-full h-40 w-40 animate-fadeInUp" src="{{ asset('images/topImg1.png') }}">
     </section>
 
     <section class="flex flex-col ml-20 mr-20 justify-center">
 
         <article
-            class="flex md:flex-row flex-col md:justify-center items-center w-full md:h-h220 rounded-3xl bg-bcardbnfcs z-10 mt-12 hover:animate-escalar">
+            class="flex md:flex-row flex-col md:justify-center items-center w-full md:h-h220 rounded-3xl bg-bcardbnfcs z-10 mt-12 animate-fade
+             transition ease-linear delay-150 hover:-translate-y-1 hover:scale-105 duration-200">
             <div class="flex flex-col justify-center w-10/12">
                 <h3 class="text-azulccl font-poppins lg:text-4xl mb-6 font-semibold leading-normal">
                     Mayor Competencia Contable
@@ -36,7 +37,7 @@
 
         <article
             class=" flex md:flex-row flex-col md:justify-center items-center w-full md:h-h220 rounded-3xl
-                    bg-bcardbnfcs z-10 mt-12 hover:animate-escalar">
+                    bg-bcardbnfcs z-10 mt-12 transition ease-linear delay-150 hover:-translate-y-1 hover:scale-105">
             <div class="flex flex-col justify-center w-10/12">
                 <h3 class="text-azulccl font-poppins lg:text-4xl mb-6 font-semibold leading-normal">
                     Cumplimiento Normativo
@@ -58,7 +59,7 @@
 
         <article
             class=" flex md:flex-row flex-col md:justify-center items-center w-full md:h-h220 rounded-3xl
-                bg-bcardbnfcs z-10 mt-12 hover:animate-escalar">
+                bg-bcardbnfcs z-10 mt-12 hover:-translate-y-1 hover:scale-105 duration-200">
             <div class="flex flex-col justify-center w-10/12">
                 <h3 class="text-azulccl font-poppins lg:text-4xl mb-6 font-semibold leading-normal">
                     Reducción de Riesgos Financieros
@@ -79,7 +80,7 @@
 
         <article
             class=" flex md:flex-row flex-col md:justify-center items-center w-full md:h-h220 rounded-3xl
-                bg-bcardbnfcs z-10 mt-12 hover:animate-escalar">
+                bg-bcardbnfcs z-10 mt-12 hover:-translate-y-1 hover:scale-105 duration-200">
             <div class="flex flex-col justify-center w-10/12">
                 <h3 class="text-azulccl font-poppins lg:text-4xl mb-6 font-semibold leading-normal">
                     Autonomía Empresarial
@@ -101,7 +102,7 @@
 
         <article
             class=" flex md:flex-row flex-col md:justify-center items-center w-full md:h-h220 rounded-3xl
-                bg-bcardbnfcs z-10 mt-12 hover:animate-escalar">
+                bg-bcardbnfcs z-10 mt-12 hover:-translate-y-1 hover:scale-105 duration-200">
             <div class="flex flex-col justify-center w-10/12">
                 <h3 class="text-azulccl font-poppins lg:text-4xl mb-6 font-semibold leading-normal">
                     Crecimiento Sostenible
@@ -123,7 +124,7 @@
 
         <article
             class=" flex md:flex-row flex-col md:justify-center items-center w-full md:h-h220 rounded-3xl
-            bg-bcardbnfcs z-10 mt-12 hover:animate-escalar
+            bg-bcardbnfcs z-10 mt-12 hover:-translate-y-1 hover:scale-105 duration-200
             ">
             <div class="flex flex-col justify-center w-10/12">
                 <h3 class="text-azulccl font-poppins lg:text-4xl mb-6 font-semibold leading-normal">

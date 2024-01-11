@@ -84,4 +84,6 @@
         </section>
     </footer>
 
+    <livewire:mancha-bot />
+
 </div>

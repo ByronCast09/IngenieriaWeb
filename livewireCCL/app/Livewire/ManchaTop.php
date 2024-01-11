@@ -11,7 +11,7 @@ class ManchaTop extends Component
         return <<<'HTML'
 
         <div class="absolute top-0 right-0 z-0">
-            <img class="" src="{{ asset('images/decore1.png') }}" />
+            <img class="animate-fade" src="{{ asset('images/decore1.png') }}" />
         </div>
         
         HTML;

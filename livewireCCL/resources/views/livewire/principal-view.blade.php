@@ -3,26 +3,27 @@
     <section class="flex justify-between items-center mb-12">
 
         <p
-            class="sm:ml-20 font-volkhov font-bold text-azulccl lg:text-titulo1 text-3xl tracking-tighter leading-titulo1 z-10">
+            class="sm:ml-20 font-volkhov font-bold text-azulccl lg:text-titulo1 text-3xl tracking-tighter leading-titulo1 z-10 animate-fade">
             Capacítate con<br />los mejores <br />economistas del<br />país</p>
 
-        <img class="sm:mr-72 mr-10 z-10 sm:w-auto sm:h-full h-60 w-60" src="{{ asset('images/topImg.svg') }}">
+        <img class="sm:mr-72 mr-10 z-10 sm:w-auto sm:h-full h-60 w-60 animate-fadeInUp"
+            src="{{ asset('images/topImg.svg') }}">
 
     </section>
 
-    <section class="sm:ml-20 flex flex-col sm:items-start items-center">
+    <section class="sm:ml-20 flex flex-col sm:items-start items-center  animate-fade">
         <p class="font-poppins text-black sm:text-subtitulo1 not-italic font-semibold leading-normal mb-8">
             Impulsa tu carrera con nuestra formación<br /> de calidad</p>
 
         <div class="flex items-center sm:justify-start justify-center">
 
             <button
-                class="btn btn-primary sm:w-44 sm:h-16 sm:mr-32 mr-3 bg-cremaccl border-none rounded-xl font-poppins text-sm shadow-masInfo hover:bg-hcremaccl">
+                class="sm:w-44 sm:h-16 sm:mr-32 mr-3 bg-cremaccl text-white border-none rounded-xl font-poppins text-sm shadow-masInfo hover:bg-hcremaccl active:bg-acremaccl">
                 Más Información
             </button>
 
-            <a href="#"
-                class="btn btn-primary rounded-circle w-12 h-12 flex justify-center items-center bg-playbtn border-none shadow-splaybtn hover:bg-hplaybtn">
+            <a 
+                class="rounded-circle w-12 h-12 flex justify-center items-center bg-playbtn text-white border-none shadow-splaybtn hover:bg-hplaybtn active:bg-aplaybtn">
                 <i class="fas fa-play text-base"></i>
             </a>
 
@@ -44,33 +45,36 @@
     <section class="flex md:flex-row flex-col justify-center mb-64">
 
         <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
-            <img class="rounded-lg hover:animate-escalar" src="{{ asset('images/card1.png') }}">
+            <img class="rounded-lg transition ease-linear delay-150 hover:-translate-y-1 hover:scale-110 duration-200"
+                src="{{ asset('images/card1.png') }}">
             <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
                 Mercadeo y Ventas
             </h2>
             <button
-                class="btn btn-primary mt-10 w-40 h-9 rounded-lg bg-cremaccl border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl">
+                class="mt-10 w-40 h-10 rounded-lg bg-cremaccl text-white border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl active:bg-acremaccl">
                 Más Información
             </button>
         </article>
 
         <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
-            <img class="rounded-lg hover:animate-escalar" src="{{ asset('images/card2.png') }}">
+            <img class="rounded-lg transition ease-linear delay-150 hover:-translate-y-1 hover:scale-110 duration-200"
+                src="{{ asset('images/card2.png') }}">
             <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
                 Producción y Calidad
             </h2>
             <button
-                class="btn btn-primary mt-10 w-40 h-9 rounded-lg bg-cremaccl border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl">Más
+                class="mt-10 w-40 h-10 rounded-lg bg-cremaccl text-white border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl active:bg-acremaccl">Más
                 Información</button>
         </article>
 
         <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
-            <img class="rounded-lg hover:animate-escalar" src="{{ asset('images/card3.png') }}">
+            <img class="rounded-lg transition ease-linear delay-150 hover:-translate-y-1 hover:scale-110 duration-200"
+                src="{{ asset('images/card3.png') }}">
             <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
                 Legal y Normativo
             </h2>
             <button
-                class="btn btn-primary mt-10 w-40 h-9 rounded-lg bg-cremaccl border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl">Más
+                class="mt-10 w-40 h-10 rounded-lg bg-cremaccl text-white border-none font-poppins text-sm shadow-smasInfo hover:bg-hcremaccl active:bg-acremaccl">Más
                 Información</button>
         </article>
 
@@ -81,7 +85,7 @@
 
             <div class="absolute flex self-end">
                 <a
-                    class="btn btn-primary rounded-circle md:w-w70 md:h-h70 w-10 h-10 flex items-center justify-center mr-10 mt-2 bg-playbtn border-none shadow-splaybtn hover:bg-hplaybtn hover:animate-escalar">
+                    class="rounded-circle md:w-w70 md:h-h70 w-10 h-10 flex items-center justify-center mr-10 mt-2 bg-playbtn text-white border-none shadow-splaybtn hover:bg-hplaybtn active:bg-aplaybtn">
                     <i class="fa-solid fa-paper-plane md:text-aiplanebtn"></i>
                 </a>
             </div>
@@ -107,7 +111,7 @@
                 </div>
 
                 <button
-                    class="btn btn-primary md:w-w180 md:h-h70 border-none rounded-xl ml-5 bg-bcontactbtn1 hover:bg-bcontactbtn2 font-poppins text-sbtn font-normal leading-normal text-black">
+                    class="md:w-w180 md:h-h70 border-none rounded-xl ml-5 bg-bcontactbtn hover:bg-bcontactbtnh active:bg-bcontactbtna font-poppins text-sbtn font-normal leading-normal text-black">
                     Suscríbete
                 </button>
             </section>

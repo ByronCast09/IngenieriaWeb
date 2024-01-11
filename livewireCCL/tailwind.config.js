@@ -24,9 +24,11 @@ export default {
                 azullogo: '#1A2F79',
                 azulccl: '#181E4B',
                 cremaccl: '#C8C57E',
-                hcremaccl: '#A2A063',
+                hcremaccl: '#b5b270',
+                acremaccl: '#a8a46b',
                 playbtn: '#DCDF4E',
-                hplaybtn: '#BFC14A',
+                hplaybtn: '#cfd152',
+                aplaybtn: '#c1c349',
                 gris: '#686D77',
                 icontactbox: '#39425DD0',
                 pcontactbox: 'rgba(0, 2, 19, 0.788)',
@@ -69,17 +71,24 @@ export default {
             },
             backgroundImage: {
                 bcontactbox: 'linear-gradient(180deg, rgba(199.95, 197.01, 126.47, 0.58) 0%, rgba(199.95, 197.01, 126.47, 0) 100%)',
-                bcontactbtn1: 'linear-gradient(180deg, rgb(255, 235.6, 109) 0%, rgb(255, 125, 104) 100%)',
-                bcontactbtn2: 'linear-gradient(180deg, rgb(197, 182, 84) 0%, rgb(255, 125, 104) 100%)',
+                bcontactbtn: 'linear-gradient(180deg, rgb(255, 235.6, 109) 0%, rgb(255, 125, 104) 100%)',
+                bcontactbtnh: 'linear-gradient(180deg, rgb(226, 209, 95) 0%, rgb(255, 125, 104) 100%)',
+                bcontactbtna: 'linear-gradient(180deg, rgb(255, 125, 104) 0%, rgb(210, 193, 88) 100%)',
             },
             keyframes: {
                 escalar: {
                   '0%': { transform: 'scale(1)' },
                   '100%': { transform: 'scale(1.03)' },
-                }
+                },
+                fadeInUp: {
+                    from: { opacity: 0, transform: 'translateY(20px)' },
+                    to: { opacity: 1, transform: 'translateY(0)' },
+                  },
               },
             animation: {
                 escalar: 'escalar 1s infinite alternate',
+                fade: 'fade 1.5s ease-in-out',
+                fadeInUp: 'fadeInUp 1.5s ease-in-out',
             },
         },
     },

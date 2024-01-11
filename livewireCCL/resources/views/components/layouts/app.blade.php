@@ -41,14 +41,10 @@
 
     <livewire:header-component />
 
-    <livewire:mancha-top />
-
 <body>
     {{ $slot }}
 </body>
 
     <livewire:footer-component />
-
-    <livewire:mancha-bot />
 
 </html>

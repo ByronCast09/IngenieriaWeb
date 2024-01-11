@@ -2,10 +2,10 @@
 
 
 use App\Livewire\BeneficiosView;
+use App\Livewire\CursoManagerView;
 use App\Livewire\CursosView;
 use App\Livewire\PrincipalView;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('/cursos-manager', [CursoController::class, 'index'])
+    Route::get('/cursos-manager', CursoManagerView::class)
     ->middleware(['auth'])
     ->name('cursos-manager');
 
