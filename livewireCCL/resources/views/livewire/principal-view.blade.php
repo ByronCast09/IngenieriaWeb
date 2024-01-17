@@ -23,7 +23,7 @@
             </button>
 
             <a 
-                class="rounded-circle w-12 h-12 flex justify-center items-center bg-playbtn text-white border-none shadow-splaybtn hover:bg-hplaybtn active:bg-aplaybtn">
+                class="rounded-full w-12 h-12 flex justify-center items-center bg-playbtn text-white border-none shadow-splaybtn hover:bg-hplaybtn active:bg-aplaybtn">
                 <i class="fas fa-play text-base"></i>
             </a>
 
@@ -85,7 +85,7 @@
 
             <div class="absolute flex self-end">
                 <a
-                    class="rounded-circle md:w-w70 md:h-h70 w-10 h-10 flex items-center justify-center mr-10 mt-2 bg-playbtn text-white border-none shadow-splaybtn hover:bg-hplaybtn active:bg-aplaybtn">
+                    class="rounded-full md:w-w70 md:h-h70 w-10 h-10 flex items-center justify-center mr-10 mt-2 bg-playbtn text-white border-none shadow-splaybtn hover:bg-hplaybtn active:bg-aplaybtn">
                     <i class="fa-solid fa-paper-plane md:text-aiplanebtn"></i>
                 </a>
             </div>

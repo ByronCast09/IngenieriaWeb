@@ -46,8 +46,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <x-primary-button type="button"
-                        data-bs-dismiss="modal">{{ __('Cancelar') }}</x-primary-button>
+                    <x-primary-button type="button" data-bs-dismiss="modal">{{ __('Cancelar') }}</x-primary-button>
 
                     <x-primary-button wire:click="eliminarCurso({{ $curso->id }})"
                         class="bg-red-500 hover:bg-red-600 active:bg-red-800 focus:bg-red-800" type="button"
@@ -60,8 +59,8 @@
 
     <!-- Edit Modal-->
 
-    <div class="modal fade" id="editModal{{ $curso->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="editModal{{ $curso->id }}" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content font-figtree font-bold">
 
@@ -77,8 +76,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form wire:submit.prevent="editarCurso({{ $curso->id }})" wire:submit.prevent="$refresh"
-                        class="mt-6 space-y-6 ">
+                    <form wire:submit.prevent="editarCurso({{ $curso->id }})" class="mt-6 space-y-6 ">
                         <div>
                             <x-input-label for="titulo" :value="__('Título del Curso')" />
                             <x-text-input wire:model="titulo" id="titulo" name="titulo" type="text"
@@ -98,6 +96,12 @@
                             <x-text-input wire:model="video_link" id="video_link" name="video_link" type="text"
                                 class="mt-1 block w-full" />
                             <x-input-error class="mt-2" :messages="$errors->get('video_link')" />
+                        </div>
+
+                        <!-- Subir Archivo -->
+                        <div class="mb-3">
+                            <label for="archivo" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="archivo" wire:model="archivo">
                         </div>
 
                         <div class="flex items-center justify-end gap-4">

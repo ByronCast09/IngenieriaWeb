@@ -9,5 +9,5 @@ class Curso extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descripcion', 'video_link'];
+    protected $fillable = ['titulo', 'descripcion', 'video_link', 'pdf_path'];
 }

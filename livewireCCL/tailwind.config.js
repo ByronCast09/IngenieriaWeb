@@ -66,6 +66,9 @@ export default {
                 h70: '70px',
                 h220: '220px',
             },
+            margin: {
+                m35: '35px',
+            },
             backgroundColor: {
                 bcardbnfcs: 'rgba(181, 190, 75, 0.15)',
             },
