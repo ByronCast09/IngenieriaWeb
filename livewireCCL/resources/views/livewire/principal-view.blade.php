@@ -7,7 +7,7 @@
             Capacítate con<br />los mejores <br />economistas del<br />país</p>
 
         <img class="sm:mr-72 mr-10 z-10 sm:w-auto sm:h-full h-60 w-60 animate-fadeInUp"
-            src="{{ asset('images/topImg.svg') }}">
+            src="{{ asset('images/topImg.webp') }}">
 
     </section>
 
@@ -46,7 +46,7 @@
 
         <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
             <img class="rounded-lg transition ease-linear delay-150 hover:-translate-y-1 hover:scale-110 duration-200"
-                src="{{ asset('images/card1.png') }}">
+                src="{{ asset('images/card1.webp') }}">
             <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
                 Mercadeo y Ventas
             </h2>
@@ -58,7 +58,7 @@
 
         <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
             <img class="rounded-lg transition ease-linear delay-150 hover:-translate-y-1 hover:scale-110 duration-200"
-                src="{{ asset('images/card2.png') }}">
+                src="{{ asset('images/card2.webp') }}">
             <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
                 Producción y Calidad
             </h2>
@@ -69,7 +69,7 @@
 
         <article class="z-10 m-12 text-center flex flex-col justify-center items-center">
             <img class="rounded-lg transition ease-linear delay-150 hover:-translate-y-1 hover:scale-110 duration-200"
-                src="{{ asset('images/card3.png') }}">
+                src="{{ asset('images/card3.webp') }}">
             <h2 class="text-azulccl font-poppins text-2xl font-semibold leading-normal mt-12">
                 Legal y Normativo
             </h2>

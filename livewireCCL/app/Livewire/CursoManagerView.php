@@ -26,7 +26,6 @@ class CursoManagerView extends Component
         ]);
 
         
-
         $archivoNombre = null;
         if ($this->archivo) {
             $randomId = \Illuminate\Support\Str::random(25);
@@ -39,7 +38,7 @@ class CursoManagerView extends Component
             'titulo' => $this->titulo,
             'descripcion' => $this->descripcion,
             'video_link' => $this->video_link,
-            'pdf_path' => $archivoNombre,
+            'recurso_path' => $archivoNombre,
         ]);
 
         $this->dispatch('curso-event');

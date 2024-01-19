@@ -9,5 +9,10 @@ class Curso extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descripcion', 'video_link', 'pdf_path'];
+    protected $fillable = ['titulo', 'descripcion', 'video_link', 'recurso_path'];
+
+    public function recursos()
+    {
+        return $this->hasMany(Recurso::class);
+    }
 }

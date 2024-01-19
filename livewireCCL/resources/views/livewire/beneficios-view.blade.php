@@ -6,7 +6,7 @@
             Beneficios <br> para afiliados
         </p>
 
-        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-full h-40 w-40 animate-fadeInUp" src="{{ asset('images/topImg1.png') }}">
+        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-full h-40 w-40 animate-fadeInUp" src="{{ asset('images/topImg1.webp') }}">
     </section>
 
     <section class="flex flex-col ml-20 mr-20 justify-center">
@@ -31,7 +31,7 @@
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img class="md:h-full md:w-full h-36 w-36" src="{{ asset('images/bcard1.png') }}"">
+                <img class="md:h-full md:w-full h-36 w-36" src="{{ asset('images/bcard1.webp') }}"">
             </div>
         </article>
 
@@ -53,7 +53,7 @@
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img class="md:h-full md:w-full h-36 w-36" src="{{ asset('images/bcard2.png') }}"">
+                <img class="md:h-full md:w-full h-36 w-36" src="{{ asset('images/bcard2.webp') }}"">
             </div>
         </article>
 
@@ -74,7 +74,7 @@
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img class="md:h-36 md:w-11/12 h-36 w-36" src="{{ asset('images/bcard3.png') }}"">
+                <img class="md:h-36 md:w-11/12 h-36 w-36" src="{{ asset('images/bcard3.webp') }}"">
             </div>
         </article>
 
@@ -96,7 +96,7 @@
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img class="md:h-44 md:w-11/12 h-36 w-36" src="{{ asset('images/bcard4.png') }}"">
+                <img class="md:h-44 md:w-11/12 h-36 w-36" src="{{ asset('images/bcard4.webp') }}"">
             </div>
         </article>
 
@@ -118,7 +118,7 @@
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img class="md:h-full md:w-11/12 h-36 w-36" src="{{ asset('images/bcard5.png') }}"">
+                <img class="md:h-full md:w-11/12 h-36 w-36" src="{{ asset('images/bcard5.webp') }}"">
             </div>
         </article>
 
@@ -141,7 +141,7 @@
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img class="md:h-36 md:w-11/12 h-36 w-36" src="{{ asset('images/bcard6.png') }}"">
+                <img class="md:h-36 md:w-11/12 h-36 w-36" src="{{ asset('images/bcard6.webp') }}"">
             </div>
         </article>
 

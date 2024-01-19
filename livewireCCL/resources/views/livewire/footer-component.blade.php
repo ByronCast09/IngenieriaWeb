@@ -8,7 +8,7 @@
         <section class="md:w-w20p flex flex-col items-center text-justify z-10">
 
             <div class="flex items-center z-10">
-                <img wire:click="backHome" class="w-20 h-20 mr-3" src="{{ asset('images/camaraC.jpg') }}">
+                <img wire:click="backHome" class="w-20 h-20 mr-3" src="{{ asset('images/camaraC.webp') }}">
                 <h4 class="text-sm font-bold font-roboto italic text-azullogo leading-relaxed">CÁMARA <br />COMERCIO
                     <br />DE
                     LOJA

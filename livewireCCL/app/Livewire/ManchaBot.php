@@ -11,7 +11,7 @@ class ManchaBot extends Component
         return <<<'HTML'
 
         <div class="relative">
-            <img class="absolute right-0 bottom-0 z-0" src="{{ asset('images/decore3.png') }}" />
+            <img class="absolute right-0 bottom-0 z-0" src="{{ asset('images/decore3.webp') }}" />
         </div>
         
         HTML;

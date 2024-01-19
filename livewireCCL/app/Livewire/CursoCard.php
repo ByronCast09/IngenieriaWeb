@@ -42,7 +42,7 @@ class CursoCard extends Component
         $this->validate([
             'archivo' => 'nullable|mimes:pdf,txt,docx|max:10240',
         ]);
-        dd($this->archivo);
+        
         $archivoNombre = null;
         if ($this->archivo) {
             $randomId = Str::random(25);
@@ -64,7 +64,7 @@ class CursoCard extends Component
                 'titulo' => $this->titulo,
                 'descripcion' => $this->descripcion,
                 'video_link' => $this->video_link,
-                'pdf_path' => $archivoNombre,
+                'recurso_path' => $archivoNombre,
             ]);
             $this->dispatch('edit-curso');
         }

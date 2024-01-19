@@ -6,7 +6,7 @@
             class="sm:ml-20 font-volkhov font-bold text-azulccl lg:text-titulo1 text-3xl tracking-tighter leading-titulo1 z-10  animate-fade">
             Cursos y <br> Práctica de <br> Contabilidad</p>
 
-        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-60 h-36 w-36 animate-fadeInUp" src="{{ asset('images/topImg2.png') }}">
+        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-60 h-36 w-36 animate-fadeInUp" src="{{ asset('images/topImg2.webp') }}">
 
     </section>
 
@@ -26,7 +26,7 @@
 
         @foreach ($cursos as $curso)
             <article class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto rounded-lg bg-opacity-15 z-10">
-                <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard.png') }}" alt="">
+                <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard.webp') }}" alt="">
 
                 <div class="m-4 flex flex-col justify-center items-center">
                     <h3 class="md:text-xl text-sm font-poppins leading-normal mb-2 self-start">

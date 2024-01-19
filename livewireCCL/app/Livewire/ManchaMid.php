@@ -11,7 +11,7 @@ class ManchaMid extends Component
         return <<<'HTML'
 
         <div class="mt-36 z-0 absolute">
-            <img class="" src="{{ asset('images/decore2.png') }}" />
+            <img class="" src="{{ asset('images/decore2.webp') }}" />
         </div>
 
         HTML;
