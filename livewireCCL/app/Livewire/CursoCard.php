@@ -17,15 +17,21 @@ class CursoCard extends Component
     public $curso;
     public $titulo;
     public $descripcion;
-    public $video_link;
-    public $archivo;
+    public $categoria;
+    public $video_links;
+    public $archivos;
 
     public function mount()
     {
         $this->titulo = $this->curso->titulo;
         $this->descripcion = $this->curso->descripcion;
-        $this->video_link = $this->curso->video_link;
-        $this->archivo = $this->curso->pdf_path;
+        $this->categoria = $this->curso->categoria;
+        $this->video_links = $this->curso->videoLinks->pluck('url')->toArray();
+    }
+
+    public function addVideoLink()
+    {
+        array_push($this->video_links, '');
     }
 
     public function eliminarCurso($cursoId)
@@ -40,32 +46,50 @@ class CursoCard extends Component
     public function editarCurso($cursoId)
     {
         $this->validate([
-            'archivo' => 'nullable|mimes:pdf,txt,docx|max:10240',
+            'archivos.*' => 'nullable|mimes:pdf,txt,docx|max:10240',
+            'video_links.*' => 'nullable|url',
         ]);
-        
-        $archivoNombre = null;
-        if ($this->archivo) {
-            $randomId = Str::random(25);
-            $extension = $this->archivo->getClientOriginalExtension();
-            $archivoNombre = $this->archivo->storeAs('pdfs', $randomId . '.' . $extension, 'public');
-            $this->archivo->delete();
-        }
 
         $curso = Curso::find($cursoId);
         if ($curso) {
 
-            $oldFile = $curso->pdf_path;
-
-            if ($oldFile && Storage::disk('public')->exists($oldFile)) {
-                Storage::disk('public')->delete($oldFile);
+            // Borrar los archivos existentes
+            foreach ($curso->archivos as $archivo) {
+                Storage::disk('public')->delete($archivo->path);
+                $archivo->delete();
             }
 
+            // Borrar los enlaces de video existentes
+            foreach ($curso->videoLinks as $videoLink) {
+                $videoLink->delete();
+            }
+
+            // Actualizar los datos del curso
             $curso->update([
                 'titulo' => $this->titulo,
                 'descripcion' => $this->descripcion,
-                'video_link' => $this->video_link,
-                'recurso_path' => $archivoNombre,
+                'categoria' => $this->categoria,
             ]);
+
+            // Agregar los nuevos archivos
+            if ($this->archivos) {
+                foreach ($this->archivos as $archivo) {
+                    $randomId = Str::random(25);
+                    $extension = $archivo->extension();
+                    $archivoNombre = $archivo->storeAs('resources', $randomId . '.' . $extension, 'public');
+                    $curso->archivos()->create(['path' => $archivoNombre]);
+                }
+            }
+
+            // Agregar los nuevos enlaces de video
+            if ($this->video_links) {
+                foreach ($this->video_links as $video_link) {
+                    if ($video_link) {
+                        $curso->videoLinks()->create(['url' => $video_link]);
+                    }
+                }
+            }
+
             $this->dispatch('edit-curso');
         }
     }

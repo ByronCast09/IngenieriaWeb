@@ -25,7 +25,7 @@
     <section class="mx-20 grid 2xl:grid-cols-2 gap-5 justify-items-center animate-fadeInUp">
 
         @foreach ($cursos as $curso)
-            <article class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto rounded-lg bg-opacity-15 z-10">
+            <a class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto rounded-lg bg-opacity-15 z-10">
                 <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard.webp') }}" alt="">
 
                 <div class="m-4 flex flex-col justify-center items-center">
@@ -37,7 +37,7 @@
                         {{ $curso->descripcion }}
                     </p>
                 </div>
-            </article>
+            </a>
         @endforeach
 
     </section>

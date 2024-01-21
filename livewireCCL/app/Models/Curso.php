@@ -9,10 +9,15 @@ class Curso extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descripcion', 'video_link', 'recurso_path'];
+    protected $fillable = ['titulo', 'descripcion', 'categoria'];
 
-    public function recursos()
+    public function archivos()
     {
-        return $this->hasMany(Recurso::class);
+        return $this->hasMany(Archivo::class);
+    }
+    
+    public function videoLinks()
+    {
+        return $this->hasMany(VideoLink::class);
     }
 }

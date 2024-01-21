@@ -25,13 +25,13 @@
 
     <!-- Create Modal-->
 
-    <div wire:ignore.self class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div wire:ignore.self class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createCursoModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content font-figtree font-bold">
 
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    <h1 class="modal-title fs-5" id="createCursoModalLabel">
                         Crear Curso
                     </h1>
                     <button
@@ -43,48 +43,80 @@
 
                 <div class="modal-body">
                     <form wire:submit.prevent="crearCurso" class="mt-6 space-y-6">
+
+                        <!-- titulo -->
                         <div>
                             <x-input-label for="titulo" :value="__('Título del Curso')" />
                             <x-text-input wire:model="titulo" id="titulo" name="titulo" type="text"
                                 class="mt-1 block w-full" required autofocus />
-                            <x-input-error class="mt-2" :messages="$errors->get('titulo')" />
                         </div>
 
+                        <!-- categoria -->
+                        <x-input-label for="createCategoria" :value="__('Categoría del Curso')" />
+                        <select wire:model="categoria" id="createCategoria"
+                            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-slate-700 rounded-md w-full shadow-sm font-medium placeholder:font-medium"
+                            required>
+                            <option selected>Selecciona una Categoría</option>
+                            <option value="Contabilidad">Contabilidad</option>
+                            <option value="Tributación">Tributación</option>
+                            <option value="Impuestos">Impuestos</option>
+                            <option value="Manejo de activos">Manejo de activos</option>
+                            <option value="Manejo de pasivos">Manejo de pasivos</option>
+                        </select>
+
+                        <!-- descripcion -->
                         <div>
                             <x-input-label for="descripcion" :value="__('Descripción del Curso')" />
-                            <textarea wire:model="descripcion" id="descripcion" name="descripcion" class="mt-1 block w-full" rows="3"
+                            <textarea wire:model="descripcion" id="descripcion" name="descripcion" class="mt-1 block w-full" rows="1"
                                 required></textarea>
-                            <x-input-error class="mt-2" :messages="$errors->get('descripcion')" />
                         </div>
 
+                        <!-- video_links -->
                         <div>
-                            <x-input-label for="video_link" :value="__('Enlace al Video del Curso')" />
-                            <x-text-input wire:model="video_link" id="video_link" name="video_link" type="text"
-                                class="mt-1 block w-full" />
-                            <x-input-error class="mt-2" :messages="$errors->get('video_link')" />
+                            <x-input-label for="video_links" :value="__('Enlace al Video del Curso')" />
+
+                            <!-- input inicial con boton "+" -->
+                            <section class="flex justify-center items-center">
+                                <x-text-input wire:model="video_links.1" id="video_link_1" name="video_link_1"
+                                    type="text" class="mt-1 block w-full" />
+                                <button wire:click="addVideoLink" type="button"
+                                    class="flex flex-row justify-center items-center w-10 h-10 ml-1 bg-gray-800 hover:bg-gray-700 text-white rounded-md">
+                                    +
+                                </button>
+                            </section>
+
+                            <!-- inputs nuevos aquí -->
+                            @foreach ($video_links as $index => $video_link)
+                                @if ($index > 1)
+                                        <x-text-input wire:model="video_links.{{ $index }}"
+                                            id="video_link_{{ $index }}" name="video_link_{{ $index }}"
+                                            type="text" class="mt-1 block w-full" />
+                                @endif
+                            @endforeach
                         </div>
 
-                        <!-- Subir Archivo -->
-                        <div class="h-44 my-4">
-                            <main class="flex items-center justify-center bg-gray-100 font-figtree">
-                                <label for="dropzone-create"
-                                    class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-xl border-2 border-dashed {{ $archivo ? 'border-blue-600' : 'border-slate-300' }} bg-white p-6 text-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        <!-- Subir Archivos -->
+                        <div class="flex items-center justify-center w-full">
+                            <label for="create-curso-dropzone-file"
+                                class="flex flex-col items-center justify-center w-full h-40 border-2 {{ $archivos ? 'border-blue-600' : 'border-gray-300' }} border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <svg class="w-8 h-8 mb-4 {{ $archivos ? 'text-blue-600' : 'text-gray-500' }} "
+                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 20 16">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                     </svg>
-
-                                    <h2 class="mt-4 text-xl font-bold text-slate-900 tracking-wide">Recursos</h2>
-
-                                    <p class="mt-2 text-gray-500">
-                                        Sube o arrastra tu recurso PDF, TXT o DOCX</p>
-
-                                    <input id="dropzone-create" type="file" class="hidden" wire:model="archivo" />
-                                </label>
-                            </main>
+                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click para subir
+                                            recurso</span> o arrastra y suelta el recurso aquí</p>
+                                    <p class="text-xs text-gray-500">PDF, TXT, DOCX</p>
+                                </div>
+                                <input wire:model="archivos" id="create-curso-dropzone-file" type="file" multiple
+                                    class="hidden" />
+                            </label>
                         </div>
 
+                        <!-- Enviar Formulario -->
                         <div class="flex items-center justify-end gap-4">
                             <x-primary-button type="submit"
                                 data-bs-dismiss="modal">{{ __('Guardar') }}</x-primary-button>

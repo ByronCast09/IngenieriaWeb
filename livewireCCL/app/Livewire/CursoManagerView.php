@@ -16,33 +16,47 @@ class CursoManagerView extends Component
     public $cursos;
     public $titulo;
     public $descripcion;
-    public $video_link;
-    public $archivo;
+    public $categoria;
+    public $archivos;
+    public $video_links = ['1' => ''];
+
+    public function addVideoLink()
+    {
+        array_push($this->video_links, '');
+    }
 
     public function crearCurso()
     {
         $this->validate([
-            'archivo' => 'nullable|mimes:pdf,txt,docx|max:10240',
+            'archivos.*' => 'nullable|mimes:pdf,txt,docx|max:10240',
+            'video_links.*' => 'nullable|url',
         ]);
 
-        
-        $archivoNombre = null;
-        if ($this->archivo) {
-            $randomId = \Illuminate\Support\Str::random(25);
-            $extension = $this->archivo->extension();
-            $archivoNombre = $this->archivo->storeAs('pdfs', $randomId . '.' . $extension, 'public');
-            $this->archivo->delete();
-        }
-
-        Curso::create([
+        $curso = Curso::create([
             'titulo' => $this->titulo,
             'descripcion' => $this->descripcion,
-            'video_link' => $this->video_link,
-            'recurso_path' => $archivoNombre,
+            'categoria' => $this->categoria,
         ]);
 
+        if ($this->archivos) {
+            foreach ($this->archivos as $archivo) {
+                $randomId = \Illuminate\Support\Str::random(25);
+                $extension = $archivo->extension();
+                $archivoNombre = $archivo->storeAs('resources', $randomId . '.' . $extension, 'public');
+                $curso->archivos()->create(['path' => $archivoNombre]);
+            }
+        }
+
+        if ($this->video_links) {
+            foreach ($this->video_links as $video_link) {
+                if ($video_link) {
+                    $curso->videoLinks()->create(['url' => $video_link]);
+                }
+            }
+        }
+
         $this->dispatch('curso-event');
-        $this->reset(['titulo', 'descripcion', 'video_link', 'archivo']);
+        $this->reset(['titulo', 'descripcion', 'categoria', 'video_links', 'archivos']);
     }
 
     #[On('curso-event')]
