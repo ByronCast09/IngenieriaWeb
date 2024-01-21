@@ -15,7 +15,7 @@
         </div>
     </x-slot>
 
-    <div class="sm:mx-10 mx-5 mt-10 grid lg:grid-cols-3 gap-4 justify-items-center">
+    <div class="sm:mx-10 mx-5 my-10 grid lg:grid-cols-3 gap-4 justify-items-center items-center">
 
         @foreach ($cursos as $curso)
             <livewire:curso-card :curso="$curso" :key="$curso->id" />
@@ -54,7 +54,7 @@
                         <!-- categoria -->
                         <x-input-label for="createCategoria" :value="__('Categoría del Curso')" />
                         <select wire:model="categoria" id="createCategoria"
-                            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-slate-700 rounded-md w-full shadow-sm font-medium placeholder:font-medium"
+                            class="mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-slate-700 rounded-md w-full shadow-sm font-medium placeholder:font-medium"
                             required>
                             <option selected>Selecciona una Categoría</option>
                             <option value="Contabilidad">Contabilidad</option>

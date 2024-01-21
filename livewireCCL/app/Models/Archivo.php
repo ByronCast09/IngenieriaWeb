@@ -9,7 +9,7 @@ class Archivo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['curso_id', 'path'];
+    protected $fillable = ['curso_id', 'nombre', 'path', 'hash'];
 
     public function curso()
     {

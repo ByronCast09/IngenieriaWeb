@@ -19,11 +19,7 @@ class CursoManagerView extends Component
     public $categoria;
     public $archivos;
     public $video_links = ['1' => ''];
-
-    public function addVideoLink()
-    {
-        array_push($this->video_links, '');
-    }
+    public $hash;
 
     public function crearCurso()
     {
@@ -43,7 +39,9 @@ class CursoManagerView extends Component
                 $randomId = \Illuminate\Support\Str::random(25);
                 $extension = $archivo->extension();
                 $archivoNombre = $archivo->storeAs('resources', $randomId . '.' . $extension, 'public');
-                $curso->archivos()->create(['path' => $archivoNombre]);
+                $nombreOriginal = $archivo->getClientOriginalName();
+                $hash = hash_file('sha256', $archivo->getRealPath());
+                $curso->archivos()->create(['nombre' => $nombreOriginal, 'path' => $archivoNombre, 'hash' => $hash]);
             }
         }
 
@@ -57,6 +55,11 @@ class CursoManagerView extends Component
 
         $this->dispatch('curso-event');
         $this->reset(['titulo', 'descripcion', 'categoria', 'video_links', 'archivos']);
+    }
+
+    public function addVideoLink()
+    {
+        array_push($this->video_links, '');
     }
 
     #[On('curso-event')]

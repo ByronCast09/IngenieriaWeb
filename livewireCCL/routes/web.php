@@ -2,6 +2,7 @@
 
 
 use App\Livewire\BeneficiosView;
+use App\Livewire\ContactosView;
 use App\Livewire\CursoManagerView;
 use App\Livewire\CursosView;
 use App\Livewire\PrincipalView;
@@ -23,6 +24,8 @@ Route::get('/', PrincipalView::class);
 Route::get('/beneficios', BeneficiosView::class);
 
 Route::get('/cursos', CursosView::class);
+
+Route::get('/contactos', ContactosView::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

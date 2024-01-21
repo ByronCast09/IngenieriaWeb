@@ -53,16 +53,7 @@ class CursoCard extends Component
         $curso = Curso::find($cursoId);
         if ($curso) {
 
-            // Borrar los archivos existentes
-            foreach ($curso->archivos as $archivo) {
-                Storage::disk('public')->delete($archivo->path);
-                $archivo->delete();
-            }
-
-            // Borrar los enlaces de video existentes
-            foreach ($curso->videoLinks as $videoLink) {
-                $videoLink->delete();
-            }
+            $existingFiles = $curso->archivos->pluck('hash', 'nombre')->toArray();
 
             // Actualizar los datos del curso
             $curso->update([
@@ -74,23 +65,46 @@ class CursoCard extends Component
             // Agregar los nuevos archivos
             if ($this->archivos) {
                 foreach ($this->archivos as $archivo) {
-                    $randomId = Str::random(25);
-                    $extension = $archivo->extension();
-                    $archivoNombre = $archivo->storeAs('resources', $randomId . '.' . $extension, 'public');
-                    $curso->archivos()->create(['path' => $archivoNombre]);
+                    $newFileHash = hash_file('sha256', $archivo->getRealPath());
+                    if (!isset($existingFiles[$archivo->getClientOriginalName()]) || $existingFiles[$archivo->getClientOriginalName()] !== $newFileHash) {
+                        $randomId = Str::random(25);
+                        $extension = $archivo->extension();
+                        $archivoNombre = $archivo->storeAs('resources', $randomId . '.' . $extension, 'public');
+                        $nombreOriginal = $archivo->getClientOriginalName();
+                        $curso->archivos()->create(['nombre' => $nombreOriginal, 'path' => $archivoNombre, 'hash' => $newFileHash]);
+                    }
                 }
             }
+
+            // Obtener los enlaces de video actuales
+            $currentVideoLinks = $curso->videoLinks->pluck('url')->toArray();
 
             // Agregar los nuevos enlaces de video
             if ($this->video_links) {
                 foreach ($this->video_links as $video_link) {
-                    if ($video_link) {
+                    if ($video_link && !in_array($video_link, $currentVideoLinks)) {
                         $curso->videoLinks()->create(['url' => $video_link]);
                     }
                 }
             }
 
+            // Eliminar los enlaces de video que ya no existen
+            foreach ($curso->videoLinks as $videoLink) {
+                if (!in_array($videoLink->url, $this->video_links)) {
+                    $videoLink->delete();
+                }
+            }
+
             $this->dispatch('edit-curso');
+        }
+    }
+
+    public function eliminarArchivo($archivoId)
+    {
+        $archivo = \App\Models\Archivo::find($archivoId);
+        if ($archivo) {
+            Storage::disk('public')->delete($archivo->path);
+            $archivo->delete();
         }
     }
 

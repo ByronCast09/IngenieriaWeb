@@ -78,6 +78,9 @@ export default {
                 bcontactbtnh: 'linear-gradient(180deg, rgb(226, 209, 95) 0%, rgb(255, 125, 104) 100%)',
                 bcontactbtna: 'linear-gradient(180deg, rgb(255, 125, 104) 0%, rgb(210, 193, 88) 100%)',
             },
+            opacity: {
+                o7: '0.07',
+            },
             keyframes: {
                 escalar: {
                   '0%': { transform: 'scale(1)' },
