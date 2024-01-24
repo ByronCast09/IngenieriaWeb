@@ -1,10 +1,10 @@
 <div class="mx-5">
-    <article class="grid grid-flow-col grid-cols-12">
-        <div class="col-span-8">
+    <article class="sm:grid sm:grid-flow-col sm:grid-cols-12 flex flex-col-reverse">
+        <div class="sm:col-span-8 sm:block flex flex-col justify-center items-center">
 
-            <section class="w-[1024px] h-[576px] sticky">
+            <section class="sticky">
                 @if (!empty($videoInfo))
-                    <iframe class="rounded-3xl z-20" width="1024" height="576"
+                    <iframe class="rounded-3xl 2xl:w-[1024px] 2xl:h-[576px] z-20"
                         src="https://www.youtube.com/embed/{{ $videoInfo[$currentVideoIndex]->id }}" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
@@ -35,13 +35,13 @@
                 </div>
             @endif
 
-            <p class="my-[30px] font-poppins text-[16px] text-pretty font-medium">
+            <p class="my-[30px] font-poppins text-[16px] text-pretty sm:mr-10 font-medium">
                 {{ $curso->descripcion }}
             </p>
         </div>
 
-        <div class="col-span-4 z-10">
-            <h1 class="font-volkhov font-bold text-azulccl lg:text-7xl text-3xl tracking-tighter">
+        <div class="sm:col-span-4 z-10">
+            <h1 class="font-volkhov font-bold text-azulccl lg:text-7xl text-5xl tracking-tighter">
                 {{ $curso->titulo }}
             </h1>
 
@@ -66,7 +66,7 @@
                         completada</label>
                 </div>
 
-                <div class="grid grid-cols-3 gap-2 font-figtree font-bold">
+                <div class="grid grid-cols-3 gap-2 font-figtree font-bold sm:mb-0 mb-4">
 
                     @foreach ($curso->archivos as $archivo)
                         @php
@@ -77,10 +77,10 @@
                         @if ($extension == 'pdf')
                             <!-- boton pdf -->
                             <a href="{{ $fileUrl }}" target="_blank"
-                                class="flex justify-center items-center bg-orange-100 hover:bg-orange-200 h-10 w-auto rounded-3xl border-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                class="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 hover:bg-gradient-to-l text-white h-10 w-auto rounded-3xl border-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-file-type-pdf mx-1.5 text-red-500"
+                                        class="icon icon-tabler icon-tabler-file-type-pdf mx-1.5 text-white"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                         stroke="currentColor" fill="none" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -100,10 +100,10 @@
                         @elseif ($extension == 'txt')
                             <!-- boton txt -->
                             <a href="{{ $fileUrl }}" target="_blank"
-                                class="flex justify-center items-center bg-green-100  hover:bg-green-200 h-10 w-auto rounded-3xl border-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                class="flex justify-center items-center bg-gradient-to-r from-green-500 to-cyan-500 hover:bg-gradient-to-l text-white h-10 w-auto rounded-3xl border-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-file-type-txt mx-1.5 text-green-600"
+                                        class="icon icon-tabler icon-tabler-file-type-txt mx-1.5 text-white"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                         stroke="currentColor" fill="none" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -125,10 +125,10 @@
                         @elseif ($extension == 'docx')
                             <!-- boton docx -->
                             <a href="{{ $fileUrl }}" download
-                                class="flex justify-center items-center bg-blue-100  hover:bg-blue-200 h-10 w-auto rounded-3xl border-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                class="flex justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 hover:bg-gradient-to-l text-white h-10 w-auto rounded-3xl border-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-file-type-docx mx-1.5 text-blue-600"
+                                        class="icon icon-tabler icon-tabler-file-type-docx mx-1.5 text-white"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                         stroke="currentColor" fill="none" stroke-linecap="round"
                                         stroke-linejoin="round">

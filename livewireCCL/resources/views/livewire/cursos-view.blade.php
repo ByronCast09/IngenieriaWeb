@@ -26,11 +26,11 @@
     <section class="mx-20 grid 2xl:grid-cols-2 gap-5 justify-items-center animate-fadeInUp">
         @foreach ($cursos as $index => $curso)
             <a href="{{ route('curso.view', ['id' => $curso->id]) }}"
-                class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto rounded-lg bg-opacity-15 z-10">
+                class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto w-auto rounded-lg bg-opacity-15 z-10 no-underline">
                 <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 2 . '.webp') }}"
                     alt="">
 
-                <div class="m-4 flex flex-col justify-center items-center">
+                <div class="m-4 flex flex-col justify-center items-center text-black">
                     <h3 class="md:text-xl text-sm font-poppins leading-normal mb-2 self-start font-semibold">
                         {{ $curso->titulo }}
                     </h3>

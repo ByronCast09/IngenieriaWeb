@@ -13,7 +13,7 @@
                     </p>
                 </div>
 
-                <div class="flex flex-row">
+                <div class="flex flex-row self-start">
                     <button data-bs-toggle="modal" data-bs-target="#editModal{{ $curso->id }}"
                         class="flex justify-center items-center w-6 h-6 ml-10 bg-slate-950 hover:bg-slate-700 text-xs text-white rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="17"

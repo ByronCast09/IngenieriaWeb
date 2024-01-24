@@ -27,6 +27,7 @@ class CursoComponentView extends Component
             $videoId = Youtube::parseVidFromURL($videolink);
             $this->videoInfo[] = Youtube::getVideoInfo($videoId);
         }
+        //dd($this->videoLinks);
     }
 
     public function nextVideo()

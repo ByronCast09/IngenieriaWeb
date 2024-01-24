@@ -1,5 +1,5 @@
 <div>
-    <div class="flex justify-between w-full h-auto bg-cremacclt rounded-xl">
+    <div class="flex justify-between w-full h-auto bg-cremacclt rounded-xl mb-3">
         <div class="flex flex-col justify-center pt-3 pl-4 pb-2">
             <h3 class="font-poppins text-[20px] font-semibold"> 
                 {{ $curso->titulo }}
