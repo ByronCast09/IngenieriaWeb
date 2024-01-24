@@ -23,6 +23,7 @@ export default {
             colors: {
                 azullogo: '#1A2F79',
                 azulccl: '#181E4B',
+                gazulccl: '#3a4abc',
                 cremaccl: '#C8C57E',
                 hcremaccl: '#b5b270',
                 acremaccl: '#a8a46b',
@@ -71,6 +72,7 @@ export default {
             },
             backgroundColor: {
                 bcardbnfcs: 'rgba(181, 190, 75, 0.15)',
+                cremacclt: 'rgba(181, 190, 75, 0.15)',
             },
             backgroundImage: {
                 bcontactbox: 'linear-gradient(180deg, rgba(199.95, 197.01, 126.47, 0.58) 0%, rgba(199.95, 197.01, 126.47, 0) 100%)',
@@ -83,21 +85,23 @@ export default {
             },
             keyframes: {
                 escalar: {
-                  '0%': { transform: 'scale(1)' },
-                  '100%': { transform: 'scale(1.03)' },
+                    '0%': { transform: 'scale(1)' },
+                    '100%': { transform: 'scale(1.03)' },
                 },
                 fadeInUp: {
                     from: { opacity: 0, transform: 'translateY(20px)' },
                     to: { opacity: 1, transform: 'translateY(0)' },
-                  },
-              },
+                },
+            },
             animation: {
                 escalar: 'escalar 1s infinite alternate',
                 fade: 'fade 1.5s ease-in-out',
                 fadeInUp: 'fadeInUp 1.5s ease-in-out',
+                progressBar: 'progress-bar-animation 1.5s linear',
             },
         },
     },
 
     plugins: [forms],
+
 };

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Prueba;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Curso extends Model
 {
@@ -19,5 +20,10 @@ class Curso extends Model
     public function videoLinks()
     {
         return $this->hasMany(VideoLink::class);
+    }
+
+    public function pruebas()
+    {
+        return $this->hasMany(Prueba::class);
     }
 }

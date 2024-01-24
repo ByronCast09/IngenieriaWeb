@@ -1,11 +1,14 @@
 <?php
 
 
-use App\Livewire\BeneficiosView;
-use App\Livewire\ContactosView;
-use App\Livewire\CursoManagerView;
 use App\Livewire\CursosView;
+use App\Livewire\CrearPrueba;
+use App\Livewire\ContactosView;
+use App\Livewire\MostrarPrueba;
 use App\Livewire\PrincipalView;
+use App\Livewire\BeneficiosView;
+use App\Livewire\CursoManagerView;
+use App\Livewire\CursoComponentView;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +28,13 @@ Route::get('/beneficios', BeneficiosView::class);
 
 Route::get('/cursos', CursosView::class);
 
+Route::get('/curso/{id}', CursoComponentView::class)->name('curso.view');
+
 Route::get('/contactos', ContactosView::class);
+
+Route::get('/crear-prueba/{cursoId}', CrearPrueba::class)->name('crear.prueba');
+
+Route::get('/mostrar-prueba/{pruebaId}', MostrarPrueba::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -40,3 +49,5 @@ Route::view('profile', 'profile')
     ->name('cursos-manager');
 
 require __DIR__ . '/auth.php';
+
+

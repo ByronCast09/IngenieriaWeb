@@ -6,13 +6,14 @@
             class="sm:ml-20 font-volkhov font-bold text-azulccl lg:text-titulo1 text-3xl tracking-tighter leading-titulo1 z-10  animate-fade">
             Cursos y <br> Práctica de <br> Contabilidad</p>
 
-        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-60 h-36 w-36 animate-fadeInUp" src="{{ asset('images/topImg2.webp') }}">
+        <img class="lg:mr-96 mr-10 z-10 sm:w-auto md:h-60 h-36 w-36 animate-fadeInUp"
+            src="{{ asset('images/topImg2.webp') }}">
 
     </section>
 
     <div class="flex sm:justify-end justify-center sm:mr-52 mb-3">
-        <form action="" class="relative">
-            <input type="search"
+        <form action="" class="relative" wire:submit.prevent>
+            <input type="search" wire:model.live.debounce.500ms="search"
                 class="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-azulccl focus:pl-16 focus:pr-4" />
             <svg xmlns="http://www.w3.org/2000/svg"
                 class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-azulccl px-3.5 peer-focus:border-azulccl peer-focus:stroke-azulccl"
@@ -23,14 +24,19 @@
     </div>
 
     <section class="mx-20 grid 2xl:grid-cols-2 gap-5 justify-items-center animate-fadeInUp">
-
-        @foreach ($cursos as $curso)
-            <a class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto rounded-lg bg-opacity-15 z-10">
-                <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard.webp') }}" alt="">
+        @foreach ($cursos as $index => $curso)
+            <a href="{{ route('curso.view', ['id' => $curso->id]) }}"
+                class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto rounded-lg bg-opacity-15 z-10">
+                <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 2 . '.webp') }}"
+                    alt="">
 
                 <div class="m-4 flex flex-col justify-center items-center">
-                    <h3 class="md:text-xl text-sm font-poppins leading-normal mb-2 self-start">
+                    <h3 class="md:text-xl text-sm font-poppins leading-normal mb-2 self-start font-semibold">
                         {{ $curso->titulo }}
+                    </h3>
+
+                    <h3 class="md:text-lg text-sm text-azulccl font-poppins leading-normal mb-2 self-start">
+                        {{ $curso->categoria }}
                     </h3>
 
                     <p class="font-inter text-justify md:text-sm text-xs leading-normal">
@@ -39,7 +45,6 @@
                 </div>
             </a>
         @endforeach
-
     </section>
 
 </div>

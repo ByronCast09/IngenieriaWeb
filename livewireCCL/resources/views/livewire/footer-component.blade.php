@@ -22,9 +22,15 @@
             </p>
 
             <div class="flex justify-center text-xl">
-                <i class="fa-brands fa-x-twitter mr-5"></i>
-                <i class="fa-brands fa-facebook mr-5"></i>
-                <i class="fa-brands fa-instagram mr-5"></i>
+                <a href="" class="hover:text-hcremaccl">
+                    <i class="fa-brands fa-x-twitter mr-5"></i>
+                </a>
+                <a href="" class="hover:text-hcremaccl">
+                    <i class="fa-brands fa-facebook mr-5"></i>
+                </a>
+                <a href="" class="hover:text-hcremaccl">
+                    <i class="fa-brands fa-instagram mr-5"></i>
+                </a>
             </div>
 
         </section>

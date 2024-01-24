@@ -16,12 +16,40 @@
                 <div class="flex flex-row">
                     <button data-bs-toggle="modal" data-bs-target="#editModal{{ $curso->id }}"
                         class="flex justify-center items-center w-6 h-6 ml-10 bg-slate-950 hover:bg-slate-700 text-xs text-white rounded-md">
-                        <i class="fa-regular fa-pen-to-square"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="17"
+                            height="17" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                            <path d="M16 5l3 3" />
+                        </svg>
+                    </button>
+
+                    <!-- maiki aqui creo el botón "Crear Prueba" -->
+                    <button wire:click="crearPrueba({{ $curso->id }})"
+                        class="flex justify-center items-center w-6 h-6 ml-2 bg-emerald-600 hover:bg-emerald-700 text-sm text-white rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-table-plus"
+                            width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12.5 21h-7.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5" />
+                            <path d="M3 10h18" />
+                            <path d="M10 3v18" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                        </svg>
                     </button>
 
                     <button data-bs-toggle="modal" data-bs-target="#deleteModal{{ $curso->id }}"
                         class="flex justify-center items-center w-6 h-6 ml-2 bg-red-600 hover:bg-red-700 text-sm text-white rounded-md">
-                        <i class="fa-solid fa-xmark"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="18"
+                            height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M18 6l-12 12" />
+                            <path d="M6 6l12 12" />
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -30,7 +58,7 @@
                 {{ $curso->descripcion }}
             </p>
 
-            <div class="grid sm:grid-cols-3 grid-cols-1 gap-2 mt-2">
+            <div class="grid grid-cols-3 gap-2 mt-2">
 
                 @foreach ($curso->archivos as $archivo)
                     @php
@@ -222,7 +250,7 @@
                             class="block w-full mt-2 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"
                             id="editInputFile" type="file" multiple>
 
-                            @if (!$curso->archivos->isEmpty())
+                        @if (!$curso->archivos->isEmpty())
                             <!-- Mostrar Archivos -->
                             <x-input-label :value="__('Recursos del Curso')" />
                             <div class="grid grid-cols-12 justify-center items-center gap-2 mt-2">

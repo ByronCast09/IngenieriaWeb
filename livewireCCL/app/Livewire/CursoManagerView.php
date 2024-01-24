@@ -72,6 +72,7 @@ class CursoManagerView extends Component
     public function mount()
     {
         $this->cursos = Curso::all();
+        $this->categoria = 'Contabilidad';
     }
 
     public function render()

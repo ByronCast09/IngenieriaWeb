@@ -1,4 +1,4 @@
-<div>
+<div class="no-underline">
 
     <x-slot name="header">
         <div class="flex flex-row items-center">
@@ -56,7 +56,7 @@
                         <select wire:model="categoria" id="createCategoria"
                             class="mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-slate-700 rounded-md w-full shadow-sm font-medium placeholder:font-medium"
                             required>
-                            <option selected>Selecciona una Categoría</option>
+                            <option selected disabled>Selecciona una Categoría</option>
                             <option value="Contabilidad">Contabilidad</option>
                             <option value="Tributación">Tributación</option>
                             <option value="Impuestos">Impuestos</option>
@@ -88,9 +88,9 @@
                             <!-- inputs nuevos aquí -->
                             @foreach ($video_links as $index => $video_link)
                                 @if ($index > 1)
-                                        <x-text-input wire:model="video_links.{{ $index }}"
-                                            id="video_link_{{ $index }}" name="video_link_{{ $index }}"
-                                            type="text" class="mt-1 block w-full" />
+                                    <x-text-input wire:model="video_links.{{ $index }}"
+                                        id="video_link_{{ $index }}" name="video_link_{{ $index }}"
+                                        type="text" class="mt-1 block w-full" />
                                 @endif
                             @endforeach
                         </div>

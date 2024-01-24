@@ -99,6 +99,11 @@ class CursoCard extends Component
         }
     }
 
+    public function crearPrueba($cursoId)
+    {
+        return redirect()->to("/crear-prueba/{$cursoId}");
+    }
+
     public function eliminarArchivo($archivoId)
     {
         $archivo = \App\Models\Archivo::find($archivoId);

@@ -19,7 +19,7 @@
                     Mayor Competencia Contable
                 </h3>
 
-                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-semibold mr-5">
+                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-medium mr-5">
                     Los participantes adquirirán un sólido conjunto de habilidades y conocimientos en contabilidad
                     básica.
                     Esto les permitirá comprender y aplicar conceptos contables esenciales, como el registro de
@@ -43,7 +43,7 @@
                     Cumplimiento Normativo
                 </h3>
 
-                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-semibold mr-5">
+                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-medium mr-5">
                     La formación les proporcionará a los empresarios una comprensión detallada de las leyes y
                     regulaciones contables y fiscales en Ecuador. Esto les permitirá cumplir con los requisitos
                     legales y fiscales de manera efectiva. Al estar al tanto de las normativas vigentes, podrán
@@ -65,7 +65,7 @@
                     Reducción de Riesgos Financieros
                 </h3>
 
-                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-semibold mr-5">
+                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-medium mr-5">
                     Al mejorar la comprensión contable, los participantes estarán en una mejor posición para
                     evitar errores en la documentación tributaria y financiera. Esto reducirá significativamente
                     los riesgos financieros, incluyendo la posibilidad de incurrir en pérdidas debido a informes
@@ -86,7 +86,7 @@
                     Autonomía Empresarial
                 </h3>
 
-                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-semibold mr-5">
+                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-medium mr-5">
                     La formación empoderará a los empresarios al proporcionarles las herramientas y
                     conocimientos necesarios para tomar decisiones financieras más informadas y
                     estratégicas. La autonomía empresarial significa que podrán gestionar sus finanzas y
@@ -108,7 +108,7 @@
                     Crecimiento Sostenible
                 </h3>
 
-                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-semibold mr-5">
+                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-medium mr-5">
                     La mejora de la eficiencia operativa y el cumplimiento de las normativas contables y
                     fiscales sienta las bases para el crecimiento sostenible de los negocios afiliados.
                     Al comprender y aplicar de manera efectiva los conceptos contables, los empresarios
@@ -131,7 +131,7 @@
                     Aprendizaje Continuo
                 </h3>
 
-                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-semibold mr-5">
+                <p class="text-black text-justify font-poppins text-sm lg:text-sbtn leading-normal font-medium mr-5">
                     El portal web educativo proporciona recursos prácticos y casos hipotéticos que
                     fomentan el aprendizaje continuo. Los empresarios pueden acceder a información
                     actualizada y recursos educativos relevantes para mantenerse al día con las

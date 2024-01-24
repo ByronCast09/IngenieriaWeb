@@ -18,4 +18,14 @@
     }
 }
 
+@keyframes progress-bar-animation {
+    0% {
+        width: 0%;
+        background-position: 0%;
+    }
 
+    100% {
+        width: 100%;
+        background-position: 100%;
+    }
+}
