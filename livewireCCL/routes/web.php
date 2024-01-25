@@ -22,30 +22,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', PrincipalView::class);
+Route::get('/', PrincipalView::class)
+    ->name('principal');
 
 Route::get('/beneficios', BeneficiosView::class);
 
 Route::get('/cursos', CursosView::class);
 
-Route::get('/curso/{id}', CursoComponentView::class)->name('curso.view');
+Route::get('/curso/{id}', CursoComponentView::class)
+    ->middleware(['auth'])
+    ->name('curso.view');
 
 Route::get('/contactos', ContactosView::class);
 
-Route::get('/crear-prueba/{cursoId}', CrearPrueba::class)->name('crear.prueba');
+Route::get('/crear-prueba/{cursoId}', CrearPrueba::class)
+    ->middleware(['admin'])
+    ->name('crear.prueba');
 
-Route::get('/mostrar-prueba/{pruebaId}', MostrarPrueba::class);
+Route::get('/mostrar-prueba/{pruebaId}', MostrarPrueba::class)
+    ->middleware(['admin']);
 
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', 'admin'])
     ->name('dashboard');
 
 Route::view('profile', 'profile')
-    ->middleware(['auth'])
+    ->middleware(['auth', 'admin'])
     ->name('profile');
 
-    Route::get('/cursos-manager', CursoManagerView::class)
-    ->middleware(['auth'])
+Route::get('/cursos-manager', CursoManagerView::class)
+    ->middleware(['auth', 'admin'])
     ->name('cursos-manager');
 
 require __DIR__ . '/auth.php';

@@ -16,7 +16,7 @@ class Curso extends Model
     {
         return $this->hasMany(Archivo::class);
     }
-    
+
     public function videoLinks()
     {
         return $this->hasMany(VideoLink::class);
@@ -25,5 +25,10 @@ class Curso extends Model
     public function pruebas()
     {
         return $this->hasMany(Prueba::class);
+    }
+
+    public function usuarios()
+    {
+        return $this->belongsToMany(User::class)->withPivot('progreso', 'completado');
     }
 }

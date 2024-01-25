@@ -14,7 +14,7 @@
             @if (count($videoLinks) > 1)
                 <div class="flex justify-center items-center mt-4 mr-10">
                     <button type="button" wire:click="previousVideo"
-                        class="w-12 h-12 mr-2 rounded-full flex justify-center items-center text-white bg-gradient-to-l from-azulccl to-gazulccl hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        class="h-12 mr-2 rounded-full flex justify-center items-center text-white bg-gradient-to-l from-azulccl to-gazulccl hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left"
                             width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                             fill="none" stroke-linecap="round" stroke-linejoin="round">
