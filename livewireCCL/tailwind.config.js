@@ -97,7 +97,7 @@ export default {
                 escalar: 'escalar 1s infinite alternate',
                 fade: 'fade 1.5s ease-in-out',
                 fadeInUp: 'fadeInUp 1.5s ease-in-out',
-                progressBar: 'progress-bar-animation 1.5s linear',
+                progressBar: 'progress-bar-animation 1.8s ease-out forwards',
             },
         },
     },

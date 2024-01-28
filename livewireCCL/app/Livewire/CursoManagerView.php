@@ -54,7 +54,7 @@ class CursoManagerView extends Component
         }
 
         $this->dispatch('curso-event');
-        $this->reset(['titulo', 'descripcion', 'categoria', 'video_links', 'archivos']);
+        $this->reset(['titulo', 'descripcion', 'video_links', 'archivos']);
     }
 
     public function addVideoLink()

@@ -3,7 +3,7 @@
         <div class="sm:col-span-8 sm:block flex flex-col justify-center items-center">
 
             <section class="sticky">
-                @if (!empty($videoInfo))
+                @if (!empty($videoInfo) && $videoInfo[0] !== false)
                     <iframe class="rounded-3xl 2xl:w-[1024px] 2xl:h-[576px] z-20"
                         src="https://www.youtube.com/embed/{{ $videoInfo[$currentVideoIndex]->id }}" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -12,61 +12,78 @@
             </section>
 
             @if (count($videoLinks) > 1)
-                <div class="flex justify-center items-center mt-4 mr-10">
-                    <button type="button" wire:click="previousVideo"
-                        class="h-12 mr-2 rounded-full flex justify-center items-center text-white bg-gradient-to-l from-azulccl to-gazulccl hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left"
-                            width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M15 6l-6 6l6 6" />
-                        </svg>
-                    </button>
-
-                    <button type="button" wire:click="nextVideo"
-                        class="w-12 h-12 ml-2 rounded-full flex justify-center items-center text-white bg-gradient-to-r from-azulccl to-gazulccl hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left"
-                            width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                            fill="none" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180)">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M15 6l-6 6l6 6" />
-                        </svg>
-                    </button>
+                <div class="flex justify-center items-center flex-wrap mt-4 mr-10 animate-fadeInUp">
+                    @foreach ($videoLinks as $index => $item)
+                        <button type="button" wire:click="selectVideo({{ $index }})"
+                            class="w-[38px] h-[38px] ml-[13px] mb-2 rounded-full flex justify-center items-center text-white bg-gradient-to-b from-azulccl to-gazulccl hover:scale-125 transition ease-in-out focus:ring-4 focus:outline-none focus:ring-blue-300">
+                            <h3 class="font-inter font-bold text-[18px]">
+                                {{ $index + 1 }}
+                            </h3>
+                        </button>
+                    @endforeach
                 </div>
             @endif
 
             <p class="my-[30px] font-poppins text-[16px] text-pretty sm:mr-10 font-medium">
                 {{ $curso->descripcion }}
             </p>
+
+            @auth
+                @if (auth()->user()->cursos->contains($curso->id) && $curso->pruebas->count() > 0)
+                    <div class="mt-6">
+                        <h2 class="text-2xl font-figtree font-bold mb-6">Pruebas</h2>
+                        <div class="flex items-center flex-wrap mb-4">
+                            @foreach ($curso->pruebas as $prueba)
+                                <a href="/mostrar-prueba/{{ $prueba->id }}" target="_blank"
+                                    class="flex justify-center w-fit mr-[13px] mb-2 items-center bg-gradient-to-l from-yellow-100 to-amber-300 hover:bg-gradient-to-bl text-slate-950 h-10 rounded-3xl border-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300">
+                                    <h2 class="font-figtree py-3 pl-3">
+                                        {{ $prueba->titulo }}
+                                    </h2>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-school mb-[4px] ml-[5px] mr-[10px]"
+                                        width="20" height="20" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+                                        <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+                                    </svg>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            @endauth
         </div>
 
         <div class="sm:col-span-4 z-10">
-            <h1 class="font-volkhov font-bold text-azulccl lg:text-7xl text-5xl tracking-tighter">
+            <h1 class="font-volkhov font-bold text-azulccl lg:text-7xl text-5xl tracking-tighter animate-fade">
                 {{ $curso->titulo }}
             </h1>
 
-            <h2 class="font-figtree font-bold text-amber-900 lg:text-3xl mt-7">
+            <h2 class="font-figtree font-bold text-amber-900 lg:text-3xl mt-7 animate-fade">
                 {{ $curso->categoria }}
             </h2>
 
             <section>
-                <div class="flex justify-between mb-1 mt-[20px]">
-                    <span class="font-poppins text-[24px] font-semibold text-black">Progreso del curso:</span>
-                    <span class="font-poppins text-[24px] font-semibold text-black">45%</span>
-                </div>
 
-                <div class="w-full bg-gray-200 rounded-full h-4 animate-progressBar">
-                    <div class="bg-gradient-to-r from-azulccl to-gazulccl h-4 rounded-full" style="width: 45%"></div>
-                </div>
+                @auth
+                    @if (auth()->user()->cursos->contains($curso->id))
+                        <livewire:progress-bar wire:model.live :progress="auth()
+                            ->user()
+                            ->cursos()
+                            ->where('curso_id', $this->curso->id)
+                            ->first()->pivot->progreso" />
 
-                <div class="flex items-center mb-4 mt-3">
-                    <input id="curso-checkbox" type="checkbox" value=""
-                        class="w-4 h-4 text-gazulccl bg-gray-200 border-gray-400 rounded focus:ring-azulccl focus:ring-2">
-                    <label for="curso-checkbox" class="ms-2 font-poppins font-semibold text-[16px]">Marcar clase como
-                        completada</label>
-                </div>
+                        <div class="flex items-center mt-3">
+                            <input id="curso-checkbox" type="checkbox" value="" wire:change="toggleCompletion"
+                                class="w-4 h-4 text-gazulccl bg-gray-200 border-gray-400 rounded focus:ring-azulccl focus:ring-2">
+                            <label for="curso-checkbox" class="ms-2 font-poppins font-semibold text-[16px]">Marcar curso
+                                como completado</label>
+                        </div>
+                    @endif
+                @endauth
 
-                <div class="grid grid-cols-3 gap-2 font-figtree font-bold sm:mb-0 mb-4">
+                <div class="grid grid-cols-3 gap-2 font-figtree font-bold sm:mb-0 mb-4 mt-4 animate-fadeInUp">
 
                     @foreach ($curso->archivos as $archivo)
                         @php
@@ -76,7 +93,7 @@
 
                         @if ($extension == 'pdf')
                             <!-- boton pdf -->
-                            <a href="{{ $fileUrl }}" target="_blank"
+                            <a wire:click="openFile({{ $loop->index }})" href="{{ $fileUrl }}" target="_blank"
                                 class="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 hover:bg-gradient-to-l text-white h-10 w-auto rounded-3xl border-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +116,7 @@
                             </a>
                         @elseif ($extension == 'txt')
                             <!-- boton txt -->
-                            <a href="{{ $fileUrl }}" target="_blank"
+                            <a wire:click="openFile({{ $loop->index }})" href="{{ $fileUrl }}" target="_blank"
                                 class="flex justify-center items-center bg-gradient-to-r from-green-500 to-cyan-500 hover:bg-gradient-to-l text-white h-10 w-auto rounded-3xl border-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +141,7 @@
                             </a>
                         @elseif ($extension == 'docx')
                             <!-- boton docx -->
-                            <a href="{{ $fileUrl }}" download
+                            <a wire:click="openFile({{ $loop->index }})" href="{{ $fileUrl }}" download
                                 class="flex justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 hover:bg-gradient-to-l text-white h-10 w-auto rounded-3xl border-gray-200 focus:ring-2 focus:outline-none focus:ring-blue-300">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -153,11 +170,27 @@
         </div>
     </article>
 
+    @php
+        $cursoClone = clone $curso;
+    @endphp
+
     <main>
-
-        @foreach ($cursosRelated as $curso)
-            <livewire:curso-category-component :curso="$curso" :key="$curso->id" />
+        @foreach ($cursosRelated as $cursoClone)
+            <livewire:curso-category-component :href="$cursoClone->href" :curso="$cursoClone" :key="$cursoClone->id" />
         @endforeach
-
     </main>
+
+    @auth
+        @if (auth()->user()->cursos->contains($curso->id))
+            <div class="flex justify-center mt-20">
+                <button type="button" wire:click="cancelarInscripcion({{ $curso->id }})"
+                    class="h-10 w-auto rounded-3xl text-white text-[15px] bg-slate-950 font-inter hover:bg-slate-800  focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    <h2 class="m-[10px]">
+                        Cancelar Inscripción
+                    </h2>
+                </button>
+            </div>
+        @endif
+    @endauth
+
 </div>

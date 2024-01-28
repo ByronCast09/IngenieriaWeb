@@ -17,7 +17,11 @@
 
     <div class="sm:mx-10 mx-5 my-10 grid lg:grid-cols-3 gap-4 justify-items-center items-center">
 
-        @foreach ($cursos as $curso)
+        @php
+            $cursosClone = clone $cursos;
+        @endphp
+
+        @foreach ($cursosClone as $curso)
             <livewire:curso-card :curso="$curso" :key="$curso->id" />
         @endforeach
 

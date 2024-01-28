@@ -10,20 +10,30 @@
 
         <nav
             class="flex md:flex-row flex-col md:items-center justify-end items-end font-inter text-xs font-semibold z-10">
-            <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110 transition ease-in-out" href="/cursos">Capacitación</a>
-            <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110 transition ease-in-out" href="/beneficios">Beneficios</a>
-            <a class="nav-link md:mr-12 sm:mt-0 mb-2 hover:scale-110 transition ease-in-out" href="/contactos">Contactos</a>
+            <a class="nav-link md:mr-14 sm:mt-0 mb-2 hover:scale-125 transition ease-in-out"
+                href="/cursos">Capacitación</a>
+            <a class="nav-link md:mr-14 sm:mt-0 mb-2 hover:scale-125 transition ease-in-out"
+                href="/beneficios">Beneficios</a>
+            <a class="nav-link md:mr-14 sm:mt-0 mb-2 hover:scale-125 transition ease-in-out"
+                href="/contactos">Contactos</a>
 
             @guest
-                <a class="nav-link md:mr-12 sm:mt-0 hover:scale-110" href="/register">Afiliate</a>
+                <a class="nav-link md:mr-14 sm:mt-0 hover:scale-125 transition ease-in-out" href="/register">Afiliate</a>
             @endguest
+
+            @auth
+                @if (auth()->user()->role == 'admin')
+                    <a class="nav-link md:mr-14 sm:mt-0 mb-2 hover:scale-125 transition ease-in-out"
+                        href="/dashboard">Dashboard</a>
+                @endif
+            @endauth
 
             @auth
                 <div class="hidden sm:flex sm:items-center">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
-                                class="inline-flex items-center text-xs leading-4 rounded-md hover:scale-110 focus:outline-none transition ease-in-out duration-150 mb-2 mr-5">
+                                class="inline-flex items-center text-xs leading-4 rounded-md hover:scale-125 focus:outline-none transition ease-in-out duration-150 mb-2 mr-5">
                                 <div x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
                                     x-on:profile-updated.window="name = $event.detail.name"></div>
 
@@ -39,7 +49,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            
+
                             {{-- Sección de perfil
                             <x-dropdown-link :href="route('profile')" wire:navigate>
                                 {{ __('Perfil') }}

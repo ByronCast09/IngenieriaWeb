@@ -27,7 +27,7 @@
                     </button>
 
                     <!-- maiki aqui creo el botón "Crear Prueba" -->
-                    <button wire:click="crearPrueba({{ $curso->id }})"
+                    <button wire:click.="crearPrueba({{ $curso->id }})"
                         class="flex justify-center items-center w-6 h-6 ml-2 bg-emerald-600 hover:bg-emerald-700 text-sm text-white rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-table-plus"
                             width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"

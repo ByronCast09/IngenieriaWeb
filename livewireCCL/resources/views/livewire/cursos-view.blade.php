@@ -14,10 +14,14 @@
     <div class="flex sm:justify-between justify-center sm:mr-20 mb-3">
 
         @auth
-            <h4 class="ml-20 my-4 text-3xl font-figtree font-semibold">
-                Tus Cursos
-            </h4>
+            @if (auth()->user()->cursos->count() > 0)
+                <h4 class="ml-20 my-4 text-3xl font-figtree font-semibold">
+                    Tus Cursos
+                </h4>
+            @endif
         @endauth
+
+        <div class="text-white">.</div>
 
         @guest
             <h4 class="ml-20 my-4 text-3xl font-figtree font-semibold animate-fade">
@@ -46,7 +50,7 @@
             @foreach ($cursos as $index => $curso)
                 <a href="{{ route('curso.view', ['id' => $curso->id]) }}"
                     class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto w-auto rounded-lg bg-opacity-15 z-10 no-underline">
-                    <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 2 . '.webp') }}"
+                    <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 4 . '.webp') }}"
                         alt="">
 
                     <main class="grid grid-flow-row">
@@ -69,11 +73,13 @@
             @endforeach
         </section>
 
-        <div class="flex justify-center mt-24 mb-[65px]">
-            <hr class="border-[2px] border-black w-[90%]">
-        </div>
+        @if (auth()->user()->cursos->count() > 0)
+            <div class="flex justify-center mt-24 mb-[65px]">
+                <hr class="border-[2px] border-black w-[90%]">
+            </div>
+        @endif
 
-        <h4 class="ml-20 mb-[65px] text-3xl font-figtree font-semibold">
+        <h4 class="ml-20 mb-[65px] text-3xl font-figtree font-semibold ">
             Cursos Disponibles
         </h4>
 
@@ -82,7 +88,7 @@
             @foreach ($cursosNoInscritos as $index => $curso)
                 <a href="{{ route('curso.view', ['id' => $curso->id]) }}"
                     class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto w-auto rounded-lg bg-opacity-15 z-10 no-underline">
-                    <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 2 . '.webp') }}"
+                    <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 4 . '.webp') }}"
                         alt="">
 
                     <main class="grid grid-flow-row">
@@ -102,7 +108,7 @@
                         </div>
                         <div class="flex justify-end mr-6 mb-3">
                             <button type="button" wire:click="inscribirse({{ $curso->id }})"
-                                class="h-10 w-24 rounded-xl text-white text-[15px] bg-gradient-to-l font-inter from-azulccl to-gazulccl hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                class="h-10 w-24 rounded-3xl text-white text-[15px] bg-slate-950 font-inter hover:bg-slate-700  focus:ring-4 focus:outline-none focus:ring-blue-300">
                                 <h2 class="m-2">
                                     Inscríbete
                                 </h2>
@@ -120,7 +126,7 @@
             @foreach ($cursos as $index => $curso)
                 <a href="{{ route('curso.view', ['id' => $curso->id]) }}"
                     class="flex md:flex-row flex-col bg-cremaccl sm:w-4/6 h-auto w-auto rounded-lg bg-opacity-15 z-10 no-underline">
-                    <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 2 . '.webp') }}"
+                    <img class="sm:h-full w-auto rounded-lg" src="{{ asset('images/ccard' . $index % 4 . '.webp') }}"
                         alt="">
 
                     <main class="grid grid-flow-row">

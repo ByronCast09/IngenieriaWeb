@@ -2,10 +2,11 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Curso;
-use Livewire\Attributes\On;
+use App\Models\Archivo;
+use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Attributes\On;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
@@ -106,7 +107,7 @@ class CursoCard extends Component
 
     public function eliminarArchivo($archivoId)
     {
-        $archivo = \App\Models\Archivo::find($archivoId);
+        $archivo = Archivo::find($archivoId);
         if ($archivo) {
             Storage::disk('public')->delete($archivo->path);
             $archivo->delete();

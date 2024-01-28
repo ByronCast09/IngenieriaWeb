@@ -27,7 +27,8 @@ Route::get('/', PrincipalView::class)
 
 Route::get('/beneficios', BeneficiosView::class);
 
-Route::get('/cursos', CursosView::class);
+Route::get('/cursos', CursosView::class)
+->name('cursos');
 
 Route::get('/curso/{id}', CursoComponentView::class)
     ->middleware(['auth'])
@@ -36,11 +37,11 @@ Route::get('/curso/{id}', CursoComponentView::class)
 Route::get('/contactos', ContactosView::class);
 
 Route::get('/crear-prueba/{cursoId}', CrearPrueba::class)
-    ->middleware(['admin'])
+    ->middleware(['auth','admin'])
     ->name('crear.prueba');
 
 Route::get('/mostrar-prueba/{pruebaId}', MostrarPrueba::class)
-    ->middleware(['admin']);
+    ->middleware(['auth']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified', 'admin'])

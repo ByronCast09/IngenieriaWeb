@@ -1,59 +1,76 @@
-<div class="container mt-4">
-    <h1 class="mb-4">Crear Prueba</h1>
+<div class="container mt-8 max-w-3xl mx-auto bg-white p-8 rounded shadow-md">
+
+    <h1 class="text-3xl font-bold mb-6 text-primary-700">Crear Prueba</h1>
 
     <form wire:submit.prevent="guardarPrueba">
 
-        <div class="mb-3">
-            <label for="titulo" class="form-label">Título de la Prueba:</label>
-            <input type="hidden" id="cursoId" wire:model="cursoId" value={{ $cursoId }}>
-            <input type="text" class="form-control" id="titulo" wire:model="titulo">
-            @error('titulo') 
-                <div class="alert alert-danger mt-2">{{ $message }}</div>
+        <div class="mb-6">
+            <label for="titulo" class="block text-gray-700 text-sm font-semibold mb-2">Título de la Prueba:</label>
+            <input type="hidden" id="cursoId" wire:model="cursoId" value="{{ $cursoId }}">
+            <input type="text" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-primary-700"
+                id="titulo" wire:model="titulo">
+            @error('titulo')
+                <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <h2 class="mb-3">Preguntas:</h2>
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-primary-700">Preguntas:</h2>
 
-            @foreach($preguntas as $index => $pregunta)
-                <div class="mb-4 border p-3 rounded">
+            @foreach ($preguntas as $index => $pregunta)
+                <div class="mb-6 border p-4 rounded-md bg-gray-100">
 
-                    <label for="pregunta{{ $index }}" class="form-label">Pregunta {{ $index + 1 }}:</label>
-                    <input type="text" class="form-control mb-2" id="pregunta{{ $index }}" wire:model="preguntas.{{ $index }}.contenido">
-                    @error("preguntas.{$index}.contenido") 
-                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    <label for="pregunta{{ $index }}"
+                        class="block text-gray-700 text-sm font-semibold mb-2">Pregunta {{ $index + 1 }}:</label>
+                    <input type="text"
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-primary-700"
+                        id="pregunta{{ $index }}" wire:model="preguntas.{{ $index }}.contenido">
+                    @error("preguntas.{$index}.contenido")
+                        <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
                     @enderror
 
-                    <button type="button" class="btn btn-secondary btn-sm mb-2" wire:click="agregarRespuesta({{ $index }})">Agregar Respuesta</button>
-
-                    @foreach($pregunta['respuestas'] as $respuestaIndex => $respuesta)
-                        <div class="mb-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="respuesta{{ $index }}" id="respuesta{{ $index }}_{{ $respuestaIndex }}" wire:model="preguntas.{{ $index }}.respuesta_seleccionada" value="{{ $respuestaIndex }}">
-                                <label class="form-check-label" for="respuesta{{ $index }}_{{ $respuestaIndex }}">
-                                    Respuesta {{ $respuestaIndex + 1 }}:
-                                </label>
-                                <input type="text" class="form-control ml-2" wire:model="preguntas.{{ $index }}.respuestas.{{ $respuestaIndex }}.contenido">
-                                @error("preguntas.{$index}.respuestas.{$respuestaIndex}.contenido") 
-                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                @enderror
-                            </div>
+                    @foreach ($pregunta['respuestas'] as $respuestaIndex => $respuesta)
+                        <div class="mt-2 flex items-center">
+                            <input class="mr-2" type="radio" name="respuesta{{ $index }}"
+                                id="respuesta{{ $index }}_{{ $respuestaIndex }}"
+                                wire:model="preguntas.{{ $index }}.respuesta_seleccionada"
+                                value="{{ $respuestaIndex }}">
+                            <input type="text"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-primary-700"
+                                wire:model="preguntas.{{ $index }}.respuestas.{{ $respuestaIndex }}.contenido">
+                            @error("preguntas.{$index}.respuestas.{$respuestaIndex}.contenido")
+                                <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                     @endforeach
 
-                    @if(count($pregunta['respuestas']) > 0)
-                        @error("preguntas.{$index}.respuesta_seleccionada") 
-                            <div class="alert alert-danger mt-2">{{ $message }}</div>
-                        @enderror
-                    @endif
+                    <div class="flex mt-4 space-x-4">
+                        
+                        <x-curso-manager-button wire:click="agregarRespuesta({{ $index }})"
+                            class="bg-cyan-600 hover:bg-cyan-700 focus:ring-slate-300 px-3 py-2 normal-case tracking-normal">
+                            Agregar Respuesta
+                        </x-curso-manager-button>
 
-                    <button type="button" class="btn btn-danger btn-sm" wire:click="eliminarPregunta({{ $index }})">Eliminar Pregunta</button>
+                        <x-curso-manager-button wire:click="eliminarPregunta({{ $index }})"
+                            class="bg-red-700 hover:bg-red-800 focus:ring-slate-300 px-3 py-1 normal-case tracking-normal">
+                            Eliminar Pregunta
+                        </x-curso-manager-button>
+
+                    </div>
                 </div>
             @endforeach
 
-            <button type="button" class="btn btn-primary" wire:click="agregarPregunta">Agregar Pregunta</button>
+            <x-curso-manager-button wire:click="agregarPregunta"
+                class="bg-sky-800 hover:bg-sky-900 focus:ring-slate-300 px-4 py-2">
+                Agregar Pregunta
+            </x-curso-manager-button>
+
         </div>
 
-        <button type="submit" class="btn btn-success mt-3">Guardar Prueba</button>
+        <x-curso-manager-button type="submit" class="h-10 bg-emerald-600 hover:bg-emerald-700 focus:ring-slate-300 px-4">
+            Guardar Prueba
+        </x-curso-manager-button>
+
     </form>
+
 </div>

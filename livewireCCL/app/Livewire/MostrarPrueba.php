@@ -45,13 +45,15 @@ class MostrarPrueba extends Component
 
     private function analizarRespuestas($respuestasCorrectas)
     {
+        $contador = 1;
         foreach ($this->respuestas as $preguntaId => $respuestaSeleccionada) {
-            $mensaje = "Pregunta $preguntaId: ";
+            $mensaje = "Pregunta $contador: ";
             if (in_array($respuestaSeleccionada, $respuestasCorrectas)) {
                 $this->preguntasCorrectas[] = $mensaje . 'Correcta';
             } else {
                 $this->preguntasIncorrectas[] = $mensaje . 'Incorrecta';
             }
+            $contador++;
         }
     }
 }
