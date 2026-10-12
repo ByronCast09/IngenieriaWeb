@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Curso;
 use Livewire\Component;
-use Alaouy\Youtube\Facades\Youtube;
+use App\Support\YoutubeVideo;
 use Illuminate\Support\Facades\Auth;
 
 class CursoComponentView extends Component
@@ -40,6 +40,9 @@ class CursoComponentView extends Component
                 $totalItems = count($this->videoLinks) + count($this->curso->archivos) + count($this->curso->pruebas);
                 $completedItems = $this->currentVideoIndex + 1 + $this->openedFilesCount + $this->completedTestsCount; // Contamos el video actual, los archivos abiertos y las pruebas completadas como completados
 
+                if ($totalItems === 0) {
+                    return;
+                }
                 $progress = ($completedItems / $totalItems) * 100;
 
                 if ($progress > $cursoUser->pivot->progreso) {
@@ -85,8 +88,7 @@ class CursoComponentView extends Component
 
         $this->videoInfo = [];
         foreach ($this->videoLinks as $videolink) {
-            $videoId = Youtube::parseVidFromURL($videolink);
-            $this->videoInfo[] = Youtube::getVideoInfo($videoId);
+            $this->videoInfo[] = YoutubeVideo::info($videolink);
         }
         $this->updateUserProgress();
     }
