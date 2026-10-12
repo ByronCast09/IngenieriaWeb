@@ -34,5 +34,21 @@ class DemoSeeder extends Seeder
         foreach ($cursos as [$titulo, $categoria, $descripcion]) {
             Curso::create(compact('titulo', 'categoria', 'descripcion'));
         }
+
+        // Estudiante inscrito en algunos cursos, con distinto avance
+        $estudiante = new User();
+        $estudiante->forceFill([
+            'name' => 'Estudiante Demo',
+            'email' => 'usuario@demo.com',
+            'password' => Hash::make('demo1234'),
+            'role' => 'user',
+            'email_verified_at' => now(),
+        ])->save();
+
+        $estudiante->cursos()->attach([
+            1 => ['progreso' => 100, 'completado' => true],
+            3 => ['progreso' => 40],
+            5 => ['progreso' => 0],
+        ]);
     }
 }
